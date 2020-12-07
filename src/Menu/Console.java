@@ -22,6 +22,14 @@ public class Console {
     }
 
     /**
+     * Same as write but with the Tag (Useful for loading stuff)
+     * @param input Console Input
+     */
+    public void writeWithTag(String input){
+        System.out.print("[CalcEXTREME]: " + input);
+    }
+
+    /**
      * Modified Println for program tag
      * @param input Console Input
      */
