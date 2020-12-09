@@ -69,6 +69,22 @@ public class Console {
     public int readInt(){
         return IO.readInteger();
     }
+
+    /**
+     * Same as above. Just outsourced it here.
+     * @return
+     */
+    public double readDouble() {
+        return IO.readDouble();
+    }
+
+    /**
+     * What the methode name already explains
+     */
+    public void pressEnterToContinue(){
+        writeLine("Press enter to continue");
+        IO.readAnything();
+    }
 }
 
 /**
