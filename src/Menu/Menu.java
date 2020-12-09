@@ -165,39 +165,14 @@ public class Menu {
     /**
      * Contains the logik for min function
      */
-    private static void minStatsSelected() throws Exception{
-        console.writeLine("Selection: ");
-        console.writeLine("1. Integer");
-        console.writeLine("2. Double");
-        //console.writeLine("3. Float");
-        //console.writeLine("4. Long");
-        console.writeWithTag("Please select the type of your number: ");
-
-
-        switch(console.readInt()){
-            default -> {
-                console.writeLine("Whoops something went wrong!", Colors.RED);
-                Thread.sleep(500);
-            }
-            case 0 -> console.writeLine("Exiting");
-            case 1 -> getMinInteger();
-            case 2 -> getMinDouble();
-            //case 3 -> numberType = "Float";
-            //case 4 -> numberType = "Long";
-        }
-    }
-
-    /**
-     * Method for Min Integer
-     */
-    private static void getMinInteger(){
-        console.writeWithTag("Please input the first number: ");
-        int number1 = console.readInt();
+    private static void minStatsSelected(){
+        console.writeWithTag("Please type the first number: ");
+        Number number1 = console.readNumber();
 
         console.writeWithTag("Please input the second number: ");
-        int number2 = console.readInt();
+        Number number2 = console.readNumber();
 
-        int min = Statistik.Minimum.getMinimum(number1, number2);
+        Number min = Statistik.Minimum.getMinimum((double) number1, (double) number2);
 
         console.writeInfo("The lowest number is: " + min);
 
@@ -207,13 +182,23 @@ public class Menu {
     /**
      * Method for Max Integer
      */
-    private static void getMinDouble(){
+    private static void getMax(){
+        console.writeWithTag("Please type the first number: ");
+        double number1 = console.readDouble();
 
+        console.writeWithTag("Please input the second number: ");
+        double number2 = console.readDouble();
+
+        double min = Statistik.Maximum.getMaximum(number1, number2);
+
+        console.writeInfo("The lowest number is: " + min);
+
+        console.pressEnterToContinue();
     }
     //</editor-fold>
 
     /**
-     * Contains the logik for max function
+     * Contains the logic for max function
      */
     private static void maxStatsSelected(){
 

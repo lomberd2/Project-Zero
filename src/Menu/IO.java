@@ -1,10 +1,13 @@
 package Menu;
 
+import Main.Main;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class IO {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static Console console = new Console();
 
     /**
      * Reads the input from the user and returns the given Integer
@@ -15,11 +18,11 @@ public class IO {
             try{
                 return Integer.parseInt(reader.readLine());
             } catch (Exception e){
-                if(Main.Main.isDebug){
+                if(Main.isDebug){
                     e.printStackTrace();
                 }
                 else{
-                    System.out.println("Only Integers are allowed! Try again.");
+                    console.writeError("Only Integers are allowed! Try again.");
                 }
             }
         }
@@ -36,11 +39,35 @@ public class IO {
             }
             catch (Exception e)
             {
-                if(Main.Main.isDebug){
+                if(Main.isDebug){
                     e.printStackTrace();
                 }
                 else{
-                    System.out.println("Only double types are allowed! Try again!");
+                    console.writeError("Only double types are allowed! Try again!");
+                }
+            }
+        }
+    }
+
+    /**
+     * Reads any number Int,double,float...
+     * @return received number
+     */
+    public static Number readNumber(){
+        while(true) {
+            try {
+                String input = reader.readLine();
+                if (input.contains(".") || input.contains(",")) {
+                    input.replace(",", ".");
+                    return Double.parseDouble(input);
+                } else {
+                    return Integer.parseInt(input);
+                }
+            } catch (Exception e) {
+                if (Main.isDebug) {
+                    e.printStackTrace();
+                } else {
+                    console.writeError("Only numbers and . are allowed!");
                 }
             }
         }

@@ -79,6 +79,14 @@ public class Console {
     }
 
     /**
+     * Same again. Just outsourced it here... Again.
+     * @return
+     */
+    public Number readNumber() {
+        return IO.readNumber();
+    }
+
+    /**
      * What the methode name already explains
      */
     public void pressEnterToContinue(){
