@@ -1,12 +1,15 @@
 package Statistik;
 
 public class Spannweite {
+
     /**
-     *
-     *  Find out the span from two Variables with int
+     * Find out the span from two Variables with int
+     * @param max Highest number in the array or whatever
+     * @param min Lowest number in the array or whatever
+     * @return Span from min and max.
      */
-    public static int spannweite(int zahl1, int zahl2){
-        int spannweite = zahl1 - zahl2;
+    public static int spannweite(int max, int min){
+        int spannweite = max - min;
         return spannweite;
     }
 
