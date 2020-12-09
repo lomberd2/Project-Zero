@@ -8,35 +8,39 @@ public class Spannweite {
      * @param min Lowest number in the array or whatever
      * @return Span from min and max.
      */
-    public static int spannweite(int max, int min){
+    public static int getSpan(int max, int min){
         int spannweite = max - min;
         return spannweite;
     }
-
     /**
-     *
-     *  Find out the span from two Variables with double
+     * Find out the span from two Variables with double
+     * @param max Highest number in the array or whatever
+     * @param min Lowest number in the array or whatever
+     * @return Span from min and max.
      */
-    public static double spannweite(double zahl1, double zahl2){
-        double spannweite = zahl1 - zahl2;
+
+    public static double getSpan(double max, double min){
+        double spannweite = max - min;
         return spannweite;
     }
-
     /**
-     *
      * Find out the span from two Variables with long
+     * @param max Highest number in the array or whatever
+     * @param min Lowest number in the array or whatever
+     * @return Span from min and max.
      */
-    public static long spannweite(long zahl1, long zahl2){
-        long spannweite = zahl1 - zahl2;
+    public static long getSpan(long max, long min){
+        long spannweite = max - min;
         return spannweite;
     }
-
     /**
-     *
-     * Find out the span from two variables with float
+     * Find out the span from two Variables with float
+     * @param max Highest number in the array or whatever
+     * @param min Lowest number in the array or whatever
+     * @return Span from min and max.
      */
-    public static float spannweite(float zahl1, float zahl2){
-        float spannweite = zahl1 - zahl2;
+    public static float getSpan(float max, float min){
+        float spannweite = max - min;
         return spannweite;
     }
 }
