@@ -2,7 +2,7 @@ package Statistik;
 
 public class Minimum {
     /**
-     * Find out the lowest number with int
+     * Find out the Lowest number with int
      * @param zahl1 Variable one
      * @param zahl2 Variable two
      * @return Lowest number
@@ -12,7 +12,7 @@ public class Minimum {
     }
 
     /**
-     * Find out the lowest number with double
+     * Find out the Lowest number with double
      * @param zahl1 Variable one
      * @param zahl2 Variable two
      * @return Lowest number
@@ -22,7 +22,7 @@ public class Minimum {
     }
 
     /**
-     * Find out the lowest number with long
+     * Find out the Lowest number with long
      * @param zahl1 Variable one
      * @param zahl2 Variable two
      * @return Lowest number
@@ -32,7 +32,7 @@ public class Minimum {
     }
 
     /**
-     * Find out the lowest number with float
+     * Find out the Lowest number with float
      * @param zahl1 Variable one
      * @param zahl2 Variable two
      * @return Lowest number
