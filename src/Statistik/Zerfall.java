@@ -1,30 +1,28 @@
 package Statistik;
 
-import oop.IO;
-
 public class Zerfall {
+	
+	/**
+	 * takes the three variables and takes the percent to make a Decay
+	 * @param startmenge what is your start population
+	 * @param prozent the percent you want do decay with
+	 * @param tage how often you want to decay
+	 * @return ergebnis[]
+	 */
+	
+	public static double[] getDecay(double startmenge, double prozent, int tage) {
 
-	public static void main(String[] args) {
-		System.out.println("Geben sie die Startmenge an");
-		double startmenge = IO.readDouble();
 
-		System.out.println("Geben sie den Faktor ein");
-		double faktor = IO.readDouble();
-
-		System.out.println("Wieviele Tage wollen sie angezeigt bekommen");
-		double tage = IO.readDouble();
-
+		double [] ergebnis = new double[tage + 1]; 
+		prozent = 1 - (prozent/100);
 		int starttag = 0;
-		System.out.println("");
-		System.out.println("Tage\tZerfallswert");
-		
 		
 		for (int i = 0; i <= tage; i++) {
 			starttag = i;
-			double ergebnis = startmenge * Math.pow(faktor, i);
-			System.out.println(starttag + "\t" + ergebnis);			
+			ergebnis[i] = startmenge * Math.pow(prozent, starttag);
 		}
-
+		
+	return ergebnis;
 	}
 
 }
