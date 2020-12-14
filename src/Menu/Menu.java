@@ -167,12 +167,12 @@ public class Menu {
      */
     private static void minStatsSelected(){
         console.writeWithTag("Please type the first number: ");
-        Number number1 = console.readNumber();
+        double number1 = console.readNumber();
 
         console.writeWithTag("Please input the second number: ");
-        Number number2 = console.readNumber();
+        double number2 = console.readNumber();
 
-        Number min = Statistik.Minimum.getMinimum((double) number1, (double) number2);
+        double min = Statistik.Minimum.getMinimum(number1, number2);
 
         console.writeInfo("The lowest number is: " + min);
 

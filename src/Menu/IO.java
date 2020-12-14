@@ -53,25 +53,25 @@ public class IO {
      * Reads any number Int,double,float...
      * @return received number
      */
-    public static Number readNumber(){
+    public static double readNumber(){
         while(true) {
             try {
                 String input = reader.readLine();
-                if (input.contains(".") || input.contains(",")) {
+                if (input.contains(",")) {
                     input.replace(",", ".");
-                    return Double.parseDouble(input);
-                } else {
-                    return Integer.parseInt(input);
                 }
+                return Double.parseDouble(input);
             } catch (Exception e) {
                 if (Main.isDebug) {
                     e.printStackTrace();
                 } else {
-                    console.writeError("Only numbers and . are allowed!");
+                    console.writeError("Only numbers are allowed!");
                 }
             }
         }
     }
+
+
 
     public static void readAnything(){
         try {
