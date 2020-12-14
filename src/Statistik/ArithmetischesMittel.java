@@ -1,19 +1,19 @@
 package Statistik;
 
-import oop.IO;
 
 public class ArithmetischesMittel {
+	
+	
+	/**
+	 * to get the aritmetic agent out of multiple numbers
+	 * @param laenge the length of the array
+	 * @param zahlenreihe the array
+	 * @return arithmet
+	 */
 
-	public static void main(String[] args) {
-		System.out.println("Geben sie die anzahl der Daten ein die sie eingeben wollen: ");
-		int laenge = IO.readInteger();
+	public static double getArithmeticAgents(int laenge, double [] zahlenreihe) {
+	
 		
-		double [] zahlenreihe = new double [laenge];
-		
-		for (int i = 0; i < zahlenreihe.length; i++) {
-			System.out.println("geben sie den " + (i + 1) + " Wert ein: ");
-			zahlenreihe[i] = IO.readDouble();
-		}
 		double summe = 0;
 		for (int i = 0; i < zahlenreihe.length; i++) {
 			summe = summe + zahlenreihe[i];
@@ -21,7 +21,7 @@ public class ArithmetischesMittel {
 		double arithmet = summe / laenge;
 		
 		
-		System.out.println(arithmet);
+		return arithmet;
 
 	}
 
