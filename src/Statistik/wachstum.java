@@ -9,7 +9,7 @@ public class Wachstum {
 	 * @param tage how often you want to potentiated it
 	 * @param startmenge what is your beginning number that is being potentiated
 	 * @param faktor the potency
-	 * @return starttag
+	 * @return ergebnis
 	 */
 	public static double getgrowth(double tage, double startmenge, double faktor) {
 		
@@ -20,7 +20,7 @@ public class Wachstum {
 			double ergebnis = startmenge * Math.pow(faktor, i);
 			
 		}
-		return starttag;
+		return ergebnis;
 	}
 
 }
