@@ -1,6 +1,6 @@
 package Statistik;
 
-public class wachstum{
+public class Growth {
 
 	
 	
@@ -11,13 +11,14 @@ public class wachstum{
 	 * @param faktor the potency
 	 * @return ergebnis
 	 */
-	public static double getgrowth(double tage, double startmenge, double faktor) {
+	public static double getGrowth(double tage, double startmenge, double faktor) {
 		
 		int starttag = 0;
-	
+		double ergebnis = 0;
+
 		for (int i = 0; i <= tage; i++) {
 			starttag = i;
-			double ergebnis = startmenge * Math.pow(faktor, i);
+			ergebnis = startmenge * Math.pow(faktor, i);
 			
 		}
 		return ergebnis;
