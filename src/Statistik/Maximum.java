@@ -17,9 +17,7 @@ public class Maximum {
      * @param zahl2 Variable two
      * @return Highest number
      */
-    public static double getMaximum(double zahl1, double zahl2){
-        return Math.max(zahl1, zahl2);
-    }
+    public static double getMaximum(double zahl1, double zahl2){ return Math.max(zahl1, zahl2); }
 
     /**
      * Find out the Highest number with long

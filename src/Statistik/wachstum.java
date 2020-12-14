@@ -1,6 +1,6 @@
 package Statistik;
 
-public class Wachstum {
+public class wachstum{
 
 	
 	
