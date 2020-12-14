@@ -31,7 +31,7 @@ public class Console {
      * @param input Console Input
      */
     public void writeWithTag(String input){
-        System.out.print("[CalcEXTREME]: " + input);
+        System.out.print(Colors.WHITE_BRIGHT + "[" + Colors.WHITE_BRIGHT + "Calc"+ Colors.RED_BRIGHT +"EXTREME"+ Colors.WHITE_BRIGHT + "]" + Colors.RESET + ": " + input);
     }
 
     /**
@@ -39,7 +39,7 @@ public class Console {
      * @param input Console Input
      */
     public void writeLine(String input){
-        System.out.println("[CalcEXTREME]: " + input);
+        System.out.println(Colors.WHITE_BRIGHT + "["+ Colors.WHITE_BRIGHT + "Calc"+ Colors.RED_BRIGHT +"EXTREME"+ Colors.WHITE_BRIGHT + "]" + Colors.RESET + ": " +  input);
     }
 
     /**
