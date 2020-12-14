@@ -40,4 +40,20 @@ public class Minimum {
     public static float getMinimum(float zahl1, float zahl2){
         return Math.min(zahl1, zahl2);
     }
+
+    /**
+     * Find the lowest number in an double array
+     * @param numbers input
+     * @return lowest number
+     */
+    public static double getMinimum(double[] numbers){
+        double min = numbers[0];
+        for(int i = 0; i < numbers.length; i++){
+            if(numbers[i] < min){
+                min = numbers[i];
+            }
+        }
+
+        return min;
+    }
 }

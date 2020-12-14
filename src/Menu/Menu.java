@@ -166,18 +166,15 @@ public class Menu {
      * Contains the logik for min function
      */
     private static void minStatsSelected(){
-        console.writeWithTag("Please type the first number: ");
-        double number1 = console.readNumber();
+        double[] input = console.readInput();
 
-        console.writeWithTag("Please input the second number: ");
-        double number2 = console.readNumber();
+        double min = Statistik.Minimum.getMinimum(input);
 
-        double min = Statistik.Minimum.getMinimum(number1, number2);
-
-        console.writeInfo("The lowest number is: " + min);
+        console.printResult("The lowest number is: " + min);
 
         console.pressEnterToContinue();
     }
+
 
     /**
      * Method for Max Integer

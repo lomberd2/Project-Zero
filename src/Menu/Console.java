@@ -2,6 +2,11 @@ package Menu;
 
 import Menu.IO;
 
+import java.lang.reflect.Array;
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class Console {
 
     /**
@@ -63,6 +68,14 @@ public class Console {
     }
 
     /**
+     * Prints input as a result
+     * @param input Result
+     */
+    public void printResult(String input){
+        System.out.println(Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + input + Colors.RESET);
+    }
+
+    /**
      * Just a handy methode to use the IO class in console
      * @return
      */
@@ -87,11 +100,66 @@ public class Console {
     }
 
     /**
+     * New read number input method
+     * @return double array with written numbers
+     */
+    public double[] readInput(){
+        ArrayList<Double> inputArray = new ArrayList<Double>();
+
+
+        writeInfo("Type in your numbers and separate them via enter. If your done, just type 'x' and press enter.");
+        writeWithTag("Please enter now your numbers: ");
+        while (true){
+            try{
+                String input = IO.readAnything();
+
+                if(input.contains("x")){
+                    int arrSize = inputArray.size();
+                    double[] outputArray = new double[arrSize];
+
+                    for(int i = 0; i < arrSize; i++){
+                        outputArray[i] = inputArray.get(i);
+                    }
+
+                    return outputArray;
+                }
+
+                if(input.contains(",")){
+
+                }
+
+                double in = Double.parseDouble(input.toLowerCase().trim().replace(",", "."));
+                inputArray.add(in);
+            }
+            catch (Exception e){
+                writeError("Whops. Something went wrong. But keep on typing :)");
+            }
+        }
+    }
+
+    /**
      * What the methode name already explains
      */
     public void pressEnterToContinue(){
-        writeLine("Press enter to continue");
-        IO.readAnything();
+        writeInfo("Do you want to save the result to your list? (Y/N)");
+        while (true) {
+            try {
+                writeWithTag("Please select: ");
+                String result = IO.readAnything().toLowerCase();
+                if(result.contains("y")){
+                    //Save results to list
+                    writeError("Not added yet! Sorry :/");
+                    return;
+                }
+                else if(result.contains("n")){
+                    return;
+                }else{
+                    writeError("Choose Yes(Y) or No(N)");
+                }
+            }catch (Exception e){
+                writeError("Choose Yes(Y) or No(N)");
+            }
+        }
     }
 }
 

@@ -11,17 +11,17 @@ public class IO {
 
     /**
      * Reads the input from the user and returns the given Integer
+     *
      * @return Integer
      */
-    public static int readInteger(){
-        while (true){
-            try{
+    public static int readInteger() {
+        while (true) {
+            try {
                 return Integer.parseInt(reader.readLine());
-            } catch (Exception e){
-                if(Main.isDebug){
+            } catch (Exception e) {
+                if (Main.isDebug) {
                     e.printStackTrace();
-                }
-                else{
+                } else {
                     console.writeError("Only Integers are allowed! Try again.");
                 }
             }
@@ -30,19 +30,17 @@ public class IO {
 
     /**
      * Reads the user input and returns it as a double
+     *
      * @return double
      */
-    public static double readDouble(){
-        while (true){
-            try{
+    public static double readDouble() {
+        while (true) {
+            try {
                 return Integer.parseInt(reader.readLine());
-            }
-            catch (Exception e)
-            {
-                if(Main.isDebug){
+            } catch (Exception e) {
+                if (Main.isDebug) {
                     e.printStackTrace();
-                }
-                else{
+                } else {
                     console.writeError("Only double types are allowed! Try again!");
                 }
             }
@@ -51,10 +49,11 @@ public class IO {
 
     /**
      * Reads any number Int,double,float...
+     *
      * @return received number
      */
-    public static double readNumber(){
-        while(true) {
+    public static double readNumber() {
+        while (true) {
             try {
                 String input = reader.readLine();
                 if (input.contains(",")) {
@@ -71,14 +70,18 @@ public class IO {
         }
     }
 
-
-
-    public static void readAnything(){
-        try {
-            reader.readLine();
-        }
-        catch(Exception e){
-            e.printStackTrace();
+    /**
+     * Reads anything and returns it
+     * @return readLine
+     */
+    public static String readAnything() {
+        while (true) {
+            try {
+                return reader.readLine();
+            } catch (Exception e) {
+                console.writeError("Something went wrong. Idk what. But its not good. Please... Stop.");
+                e.printStackTrace();
+            }
         }
     }
 }
