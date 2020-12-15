@@ -4,25 +4,18 @@ public class Decay {
 	
 	/**
 	 * takes the three variables and takes the percent to make a Decay
-	 * @param startmenge what is your start population
-	 * @param prozent the percent you want do decay with
-	 * @param tage how often you want to decay
+	 * @param startValue starting value
+	 * @param factor factor
+	 * @param duration duration
 	 * @return ergebnis[]
 	 */
-	
-	public static double[] getDecay(double startmenge, double prozent, int tage) {
-
-
-		double [] ergebnis = new double[tage + 1]; 
-		prozent = 1 - (prozent/100);
-		int starttag = 0;
-		
-		for (int i = 0; i <= tage; i++) {
-			starttag = i;
-			ergebnis[i] = startmenge * Math.pow(prozent, starttag);
+	public static double getDecay(double startValue, double duration, double factor) {
+		double result = 0;
+		factor = 1 - (factor/100);
+		for (int i = 0; i <= duration; i++) {
+			result = startValue * Math.pow(factor, i);
 		}
-		
-	return ergebnis;
+		return result;
 	}
 
 }

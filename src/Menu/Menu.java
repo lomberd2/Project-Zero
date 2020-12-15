@@ -1,6 +1,7 @@
 package Menu;
 
 import Statistics.Span;
+import Math.*;
 
 public class Menu {
     //<editor-fold desc="Header">
@@ -94,7 +95,8 @@ public class Menu {
             //Selection
             switch (console.readChoice(new int[]{0,1,2,3,4,5})){
                 case 1 -> statistic();
-                case 2, 3, 4, 5 ->{
+                case 2 -> growthAndDecaySelected();
+                case 3, 4, 5 ->{
                     console.writeInfo("Function not implemented yet");
                 }
                 case 0 -> {
@@ -235,6 +237,70 @@ public class Menu {
 
     //</editor-fold>
 
+
+    //</editor-fold>
+
+    //<editor-fold desc="Growth and Decay">
+    /**
+     * Handelling the selection
+     */
+    private static void growthAndDecaySelected(){
+        console.writeInfo("Please choose whether you want to calculate growth[1] or decay[2]");
+        switch (console.readChoice(new int[]{1,2})){
+            case 1 -> growth();
+            case 2 -> decay();
+        }
+    }
+
+    //<editor-fold desc="Growth">
+    /**
+     * Handles the growth calculation
+     */
+    private static void growth(){
+        console.clear();
+
+        console.writeLine("-Growth-\n");
+
+        console.write("Please enter the starting value: ");
+        double startValue = console.readDouble();
+
+        console.write("Please enter the duration in days: ");
+        double duration = console.readDouble();
+
+        console.write("Please enter the factor of growth: ");
+        double factor = console.readDouble();
+        console.write("\n");
+
+        console.printResult("The end result after "+ duration+ " days is " + Growth.getGrowth(startValue, duration, factor) );
+
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Decay">
+    /**
+     * Handles the decay calculation
+     */
+    private static void decay(){
+        console.clear();
+
+        console.writeLine("-Decay-\n");
+
+        console.write("Please enter the starting value: ");
+        double startValue = console.readDouble();
+
+        console.write("Please enter the duration in days: ");
+        double duration = console.readDouble();
+
+        console.write("Please enter the factor of decay: ");
+        double factor = console.readDouble();
+        console.write("\n");
+
+        console.printResult("The end result after "+ duration+ " days is " + Decay.getDecay(startValue, duration, factor) );
+
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
 
     //</editor-fold>
 }
