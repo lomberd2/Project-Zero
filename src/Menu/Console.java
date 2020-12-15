@@ -1,14 +1,9 @@
 package Menu;
 
-import Menu.IO;
-
-import java.lang.reflect.Array;
-import java.time.Year;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Console {
-
+    //region Write
     /**
      * Modified Print
      * @param input Consolen Input
@@ -23,17 +18,21 @@ public class Console {
      * @param color
      */
     public void write(String input, String color){
-        System.out.print(color + input + Colors.RESET);
+        write(color + input + Colors.RESET);
     }
+    //endregion
 
+    //region Write Tag
     /**
      * Same as write but with the Tag (Useful for loading stuff)
      * @param input Console Input
      */
     public void writeWithTag(String input){
-        System.out.print(Colors.WHITE_BRIGHT + "[" + Colors.WHITE_BRIGHT + "Calc"+ Colors.RED_BRIGHT +"EXTREME"+ Colors.WHITE_BRIGHT + "]" + Colors.RESET + ": " + input);
+        write(Colors.WHITE_BRIGHT + "[" + Colors.WHITE_BRIGHT + "Calc"+ Colors.RED_BRIGHT +"EXTREME"+ Colors.WHITE_BRIGHT + "]" + Colors.RESET + ": " + input);
     }
+    //endregion
 
+    //region Write Line
     /**
      * Modified Println for program tag
      * @param input Console Input
@@ -51,30 +50,78 @@ public class Console {
         System.out.println(color + "[CalcEXTREME]: " + input + Colors.RESET);
     }
 
+    public void writeEmptyLine(String input){
+        System.out.println(input);
+    }
+    //endregion
+
+    //region Write Info
     /**
      * Writes the output with an info tag and in yellow color
      * @param input Console Input
      */
     public void writeInfo(String input){
-        System.out.println(Colors.YELLOW + "[CalcEXTREME][INFO]: " + input + Colors.RESET);
+        try {
+            System.out.println(Colors.YELLOW + "[CalcEXTREME][INFO]: " + input + Colors.RESET);
+            Thread.sleep(1000);
+        }catch (Exception e){}
     }
 
     /**
-     * Writes the output with an error tag and in red color
+     * Same as above but with display time
      * @param input Console Input
+     * @param time How long it takes before continue
+     */
+    public void writeInfo(String input, int time){
+        try {
+            System.out.println(Colors.YELLOW + "[CalcEXTREME][INFO]: " + input + Colors.RESET);
+            Thread.sleep(time);
+        }catch (Exception e){}
+    }
+    //endregion
+
+    //region Write Error
+    /**
+     * Writes the output with an error tag and in red color
+     * @param input displayed text
      */
     public void writeError(String input){
-        System.out.println(Colors.RED + "[CalcEXTREME][ERR]: " + input + Colors.RESET);
+        try {
+            System.out.println(Colors.RED + "[CalcEXTREME][ERR]: " + input + Colors.RESET);
+            Thread.sleep(1500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * Writes the output with an error tag and in red color and waits for a given time
+     * @param input displayed text
+     * @param time time/ms
+     */
+    public void writeError(String input, int time){
+        try {
+            System.out.println(Colors.RED + "[CalcEXTREME][ERR]: " + input + Colors.RESET);
+            Thread.sleep(time);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //endregion
+
+    //region Print Result
     /**
      * Prints input as a result
      * @param input Result
      */
     public void printResult(String input){
-        System.out.println(Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + input + Colors.RESET);
+        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + input + Colors.RESET + "\n\n");
     }
+    //endregion
 
+    //region Read Stuff
+
+    //region Read Integer
     /**
      * Just a handy methode to use the IO class in console
      * @return
@@ -82,7 +129,9 @@ public class Console {
     public int readInt(){
         return IO.readInteger();
     }
+    //endregion
 
+    //region Read Double
     /**
      * Same as above. Just outsourced it here.
      * @return
@@ -90,7 +139,9 @@ public class Console {
     public double readDouble() {
         return IO.readDouble();
     }
+    //endregion
 
+    //region Read Number
     /**
      * Same again. Just outsourced it here... Again.
      * @return
@@ -98,7 +149,9 @@ public class Console {
     public double readNumber() {
         return IO.readNumber();
     }
+    //endregion
 
+    //region Read Input
     /**
      * New read number input method
      * @return double array with written numbers
@@ -136,33 +189,164 @@ public class Console {
             }
         }
     }
+    //endregion
 
+    //region Read Choice
+    /**
+     * Reads an input from an user and makes im choose one of the pre definded words
+     * @param choices choices
+     * @return selectedChoice
+     */
+    public String readChoice(String[] choices){
+        while(true) {
+            write("\nPlease select: ");
+            String input = IO.readAnything().trim().toLowerCase();
+
+            for (int i = 0; i < choices.length; i++) {
+                String choice = choices[i].trim().toLowerCase();
+                if (input.contains(choice)) {
+                    write("\n");
+                    return choice;
+                }
+            }
+
+            write("Only [");
+
+            write("" + choices[0].toUpperCase(), Colors.RED);
+            for(int i = 1; i < choices.length; i++){
+                write("/" + choices[i].toUpperCase(), Colors.RED);
+            }
+
+            write("] are valid choices!\n");
+        }
+    }
+
+    /**
+     * Same as above but with Integer
+     * @param choices choices
+     * @return selectedChoice
+     */
+    public int readChoice(int[] choices){
+        while(true) {
+            write("\nPlease select: ");
+            int input = IO.readInteger();
+
+            for (int i = 0; i < choices.length; i++) {
+                int choice = choices[i];
+                if (input == choice) {
+                    write("\n");
+                    return choice;
+                }
+            }
+
+            write("Only [");
+
+            write("" + choices[0], Colors.RED);
+            for(int i = 1; i < choices.length; i++){
+                write("/" + choices[i], Colors.RED);
+            }
+
+            write("] are valid choices!\n");
+        }
+    }
+    //endregion
+    //endregion
+
+    //region Some Methods
+
+    //region Press Enter To Continue
     /**
      * What the methode name already explains
      */
     public void pressEnterToContinue(){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        while (true) {
-            try {
-                writeWithTag("Please select: ");
-                String result = IO.readAnything().toLowerCase();
-                if(result.contains("y")){
-                    //Save results to list
-                    writeError("Not added yet! Sorry :/");
-                    return;
-                }
-                else if(result.contains("n")){
-                    return;
-                }else{
-                    writeError("Choose Yes(Y) or No(N)");
-                }
-            }catch (Exception e){
-                writeError("Choose Yes(Y) or No(N)");
+        switch (readChoice(new String[]{"y","n"})){
+            case "y" -> {
+                writeError("Not added yet! Sorry :/");
+                return;
+            }
+            case "n" -> {
+                return;
             }
         }
     }
+    //endregion
+
+    //region Clear
+    /**
+     * Clears the console
+     */
+    public void clear(){
+        /* Maybe Later but for now its not working in the IDE
+        System.out.flush();
+        try {
+            outStream.flush();
+            Thread.sleep(100);
+        }catch (Exception e){
+            e.printStackTrace();
+        }*/
+        for(int i = 0; i < 40; i++){
+            writeEmptyLine("");
+        }
+    }
+    //endregion
+
+    //region Loading Emulator
+    /**
+     * Emulating loading
+     * @param loadingName Name of the thing to load
+     * @param loadingTime Time to load in ms
+     */
+    public void loadingEmulator(String loadingName, int loadingTime){
+        long loadingTimeDiv = loadingTime / 4;
+
+        try{
+            writeInfo("Loading " + loadingName + " now");
+            writeWithTag("Loading" );
+
+            //1/4 loadingTime
+            Thread.sleep(loadingTimeDiv);
+            write(".");
+
+            //1/4 loadingTime
+            Thread.sleep(loadingTimeDiv);
+            write(".");
+
+            //1/4 loadingTime
+            Thread.sleep(loadingTimeDiv);
+            write(".");
+
+            //1/4 loadingTime
+            Thread.sleep(loadingTimeDiv);
+            write("\n");
+        }catch (Exception e){}
+    }
+    //endregion
+
+    //region Get Input
+    /**
+     * Standard equation beginning. To select a saved array or create new one.
+     * @return
+     */
+    public double[] getInput(){
+        writeInfo("Do you want to use one of your saved arrays? (Y/N)");
+        String choice = readChoice(new String[]{"n", "y"});
+        if(choice.contains("y")){
+            writeError("Function not implemented yet.");
+            return readInput();
+        }
+        if(choice.contains("n")){
+            return readInput();
+        }
+
+        return null;
+    }
+    //endregion
+
+    //endregion
 }
 
+//region Colors Class
 /**
  * SOURCE: https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
  */
@@ -239,3 +423,4 @@ class Colors{
     public static final String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
     public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
 }
+//endregion

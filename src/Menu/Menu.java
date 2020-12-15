@@ -1,9 +1,10 @@
 package Menu;
 
+import Statistics.Span;
+
 public class Menu {
     //<editor-fold desc="Header">
-    public static Console console;
-    private static boolean isRunning = true;
+    public static Console console = new Console();
 
     /* Char Table #QuickLookUp
      * ### VERSION : START
@@ -31,195 +32,209 @@ public class Menu {
         System.out.println("╠    ░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓    ╣");
         System.out.println("╠     Created by XimBaumY, JanderLP and lomberd2      ╣");
         System.out.println("╚═════════════════════════════════════════════════════╝");
-
         Thread.sleep(500);
-
-        //Loading Init
-        System.out.print("[CalcEXTREME]: Loading");
-        init();
-
-        //Loading emulator
-        console.write(".");
-        Thread.sleep(500);
-
-        console.write(".");
-        Thread.sleep(500);
-
-        console.write(".");
-        Thread.sleep(500);
-        console.write("\n");
-
-        console.writeLine("Done loading \n", Colors.YELLOW);
-        Thread.sleep(1500);
 
         //Loading main menu
         mainMenu();
     }
     //</editor-fold>
 
-    //<editor-fold desc="Main Menu Stuff">
+    //<editor-fold desc="Main Menu">
     /**
      * Main Methode for the Menu
      */
-    private static void mainMenu() throws Exception{
-
-        loadingEmulator("Main Menu");
-
-        //MainLoop
-        while(isRunning){
+    private static void mainMenu(){
+        console.loadingEmulator("Main Menu", 3000);
+        while(true){
             //Main Menu Print
-            printMainMenu();
+            console.clear();
+            console.writeLine("╔═════════════════════════════════════════════════════╗");
+            console.writeLine("╠═──────────────────{  MAIN MENU  }──────────────────═╣");
+            console.writeLine("╠═─ 1 : Functions (Stats,Matrix..) ──────────────────═╣");
+            console.writeLine("╠═─ 2 : Saved Arrays ────────────────────────────────═╣");
+            console.writeLine("╠═─ 3 : Empty Function ──────────────────────────────═╣");
+            console.writeLine("╠═─ 4 : Empty Function ──────────────────────────────═╣");
+            console.writeLine("╠═─ 5 : Empty Function ──────────────────────────────═╣");
+            console.writeLine("╠═─ 6 : Empty Function ──────────────────────────────═╣");
+            console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
+            console.writeLine("╚═════════════════════════════════════════════════════╝");
 
             //Selection
-            console.write("\nSelect function: ");
-            selectionMenu(console.readInt());
-        }
-    }
-
-    /**
-     * The selection switch from the main menu
-     * @param selection Selected option
-     */
-    private static void selectionMenu(int selection) throws Exception{
-        switch (selection){
-            case 0 -> isRunning = false;
-            case 1 -> statistik();
-            default -> {
-                    console.writeError("Whooops there's an error!");
-                    Thread.sleep(1500);
+            switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
+                case 1 -> functionsMenu();
+                case 2, 3, 4, 5, 6 ->{
+                    console.writeInfo("Function not implemented yet");
+                }
+                case 0 -> {
+                    return;
+                }
             }
         }
-    }
-
-    /**
-     * Prints the Main Menu
-     */
-    private static void printMainMenu(){
-        console.writeLine("╔═════════════════════════════════════════════════════╗");
-        console.writeLine("╠═──────────────────{  MAIN MENU  }──────────────────═╣");
-        console.writeLine("╠═─ 1 : Statistics (Min, Max, Span, etc.) ───────────═╣");
-        console.writeLine("╠═─ 2 : Wachstum & Zerfall ──────────────────────────═╣");
-        console.writeLine("╠═─ 3 : Quad. Gleichungen ───────────────────────────═╣");
-        console.writeLine("╠═─ 4 : Vektorrechnung ──────────────────────────────═╣");
-        console.writeLine("╠═─ 5 : Matrizenrechnung ────────────────────────────═╣");
-        console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
-        console.writeLine("╚═════════════════════════════════════════════════════╝");
     }
     //</editor-fold>
 
-    private static void init(){
-        console = new Console();
-    }
-
-    //<editor-fold desc="Statistik Stuff">
-
+    //<editor-fold desc="Functions Menu">
     /**
-     * Loading main menu for statistics stuff. Includes the loop and logik for the menu.
+     * The menu that contains the functions
      */
-    private static void statistik() throws Exception{
-        //Emulate Loading
-        loadingEmulator("Statistics menu");
-
-        while (true){
-            //Print Main Menu
-            printStatisticsMenu();
+    private static void functionsMenu(){
+        while(true){
+            //Main Menu Print
+            console.clear();
+            console.writeLine("╔═════════════════════════════════════════════════════╗");
+            console.writeLine("╠═──────────────────{  Functions  }──────────────────═╣");
+            console.writeLine("╠═─ 1 : Statistics (Min, Max, Span, etc.) ───────────═╣");
+            console.writeLine("╠═─ 2 : Growth and decay ────────────────────────────═╣");
+            console.writeLine("╠═─ 3 : Quadratic equation ──────────────────────────═╣");
+            console.writeLine("╠═─ 4 : Vector calculation ──────────────────────────═╣");
+            console.writeLine("╠═─ 5 : Matrix calculation ──────────────────────────═╣");
+            console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
+            console.writeLine("╚═════════════════════════════════════════════════════╝");
 
             //Selection
-            console.write("\nSelect function: ");
-
-            switch (console.readInt()){
+            switch (console.readChoice(new int[]{0,1,2,3,4,5})){
+                case 1 -> statistic();
+                case 2, 3, 4, 5 ->{
+                    console.writeInfo("Function not implemented yet");
+                }
                 case 0 -> {
-                    console.writeLine("Returning to Main menu");
-                    Thread.sleep(1000);
                     return;
-                }
-                case 1 -> {
-                    console.writeLine("Opening selection 1");
-                    Thread.sleep(500);
-                    minStatsSelected();
-                }
-                default -> {
-                    console.writeLine("Whoops something went wrong!", Colors.RED);
-                    Thread.sleep(1000);
                 }
             }
         }
     }
+    //</editor-fold>
 
+    //<editor-fold desc="Statistics Stuff">
+
+    //<editor-fold desc="Statistics Startup">
     /**
-     * Just prints the statistics menu
+     * Loading main menu for statistics stuff. Includes the loop and logic for the menu.
+     */
+    private static void statistic(){
+        //Emulate Loading
+        console.loadingEmulator("Statistics", 3000);
+        printStatisticsMenu();
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Statistics Menus">
+
+    //<editor-fold desc="First Menu">
+    /**
+     * Handles the First Page of the Statistics menu
      */
     private static void printStatisticsMenu(){
-        console.writeLine("╔═════════════════════════════════════════════════════╗");
-        console.writeLine("╠═─────────────────{  Statistics  }──────────────────═╣");
-        console.writeLine("╠═─ 1 : Min (Get the lowest number from two) ────────═╣");
-        console.writeLine("╠═─ 2 : Max (Get the highest number from two) ───────═╣");
-        console.writeLine("╠═─ 3 : Span (Get the range between min and max) ────═╣");
-        console.writeLine("╠═─ 4 : Vektorrechnung ──────────────────────────────═╣");
-        console.writeLine("╠═─ 5 : Matrizenrechnung ────────────────────────────═╣");
-        console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
-        console.writeLine("╚═════════════════════════════════════════════════════╝");
+        while (true){
+            console.clear();
+            console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
+            console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
+            console.writeLine("╠═─ 1 : Minimum (Get the lowest number from two) ──────────────────═╣");
+            console.writeLine("╠═─ 2 : Maximum (Get the highest number from two) ─────────────────═╣");
+            console.writeLine("╠═─ 3 : Span (Get the range between min and max) ──────────────────═╣");
+            console.writeLine("╠═─ 4 : Maximum deviation between two neighboring measured values ─═╣");
+            console.writeLine("╠═─ 5 : Minimal deviation of two neighboring measured values ──────═╣");
+            console.writeLine("╠═─ 6 : Next Page ─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─═╣");
+            console.writeLine("╠═─ 0 : Exit ──────────────────────────────────────────────────────═╣");
+            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
+
+            switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
+                case 0 -> {
+                    console.writeInfo("Returning to Main menu");
+                    return;
+                }
+                case 1 -> {
+                    console.writeInfo("Opening: Minimum");
+                    minStatsSelected();
+                }
+                case 2 -> {
+                    console.writeInfo("Opening: Maximum");
+                    maxStatsSelected();
+                }
+                case 3 -> {
+                    console.writeInfo("Opening: Span");
+                    spanMenuSelected();
+                }
+                case 4, 5 ->{
+                    console.writeInfo("Not implemented yet");
+                }
+                case 6 ->{
+                    printStatisticsMenuPage2();
+                }
+            }
+        }
     }
+    //</editor-fold>
+
+    //<editor-fold desc="Second Menu">
+    /**
+     * Handles the second page from the statistics menu
+     */
+    private static void printStatisticsMenuPage2(){
+        while(true){
+            console.clear();
+            console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
+            console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
+            console.writeLine("╠═─ 1 : Median ────────────────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 2 : Mode Value ────────────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 3 : Variance ──────────────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 4 : Standard deviation ────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 5 : Arithmetic mean ───────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 6 : Geometric mean ────────────────────────────────────────────═╣");
+            console.writeLine("╠═─ 0 : ←─Page─Back────────────────────────────────────────────────═╣");
+            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
+
+            switch (console.readChoice(new int[]{1, 0, 2, 3, 4, 5})){
+                case 1, 2, 3, 4 -> {
+                    console.writeInfo("Function not implemented yet");
+                }
+                case 0 ->{
+                    return;
+                }
+            }
+        }
+    }
+    //</editor-fold>
+
+    //</editor-fold>
+
+    //<editor-fold desc="First Page Functions">
 
     //<editor-fold desc="Minimum">
     /**
      * Contains the logik for min function
      */
     private static void minStatsSelected(){
-        double[] input = console.readInput();
-
-        double min = Statistik.Minimum.getMinimum(input);
-
-        console.printResult("The lowest number is: " + min);
-
-        console.pressEnterToContinue();
-    }
-
-
-    /**
-     * Method for Max Integer
-     */
-    private static void getMax(){
-        console.writeWithTag("Please type the first number: ");
-        double number1 = console.readDouble();
-
-        console.writeWithTag("Please input the second number: ");
-        double number2 = console.readDouble();
-
-        double min = Statistik.Maximum.getMaximum(number1, number2);
-
-        console.writeInfo("The lowest number is: " + min);
-
+        double[] input = console.getInput();
+        console.printResult("The lowest number is: " + Statistics.Minimum.getMinimum(input));
         console.pressEnterToContinue();
     }
     //</editor-fold>
 
+    //<editor-fold desc="Maximum">
     /**
      * Contains the logic for max function
      */
     private static void maxStatsSelected(){
-
+        double[] input = console.getInput();
+        console.printResult("The highest number is: " + Statistics.Maximum.getMaximum(input));
+        console.pressEnterToContinue();
     }
     //</editor-fold>
 
+    //<editor-fold desc="Span">
     /**
-     * Just a handy emulator for loading stuff
-     * @param loadingText Text to display
-     * @throws Exception Just an exception because of "Thread.sleep"
+     * When the span menu gets selected
      */
-    private static void loadingEmulator(String loadingText) throws Exception{
-        //Loading
-        console.writeWithTag(loadingText + " loading");
-        Thread.sleep(500);
-
-        console.write(".");
-        Thread.sleep(500);
-
-        console.write(".");
-        Thread.sleep(500);
-
-        console.write(".");
-        Thread.sleep(500);
-        console.write("\n");
+    private static void spanMenuSelected(){
+        double[] input = console.getInput();
+        console.printResult("The span is " + Span.getSpan(input));
+        console.pressEnterToContinue();
     }
+    //</editor-fold>
+
+    //</editor-fold>
+
+
+    //</editor-fold>
 }

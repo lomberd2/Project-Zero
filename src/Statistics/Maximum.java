@@ -1,4 +1,4 @@
-package Statistik;
+package Statistics;
 
 public class Maximum {
     /**
@@ -37,5 +37,21 @@ public class Maximum {
      */
     public static float getMaximum(float zahl1, float zahl2){
         return Math.max(zahl1, zahl2);
+    }
+
+    /**
+     * Find the highest number in an double array
+     * @param numbers input
+     * @return highest number
+     */
+    public static double getMaximum(double[] numbers){
+        double max = numbers[0];
+        for(int i = 0; i > numbers.length; i++){
+            if(numbers[i] > max){
+                max = numbers[i];
+            }
+        }
+
+        return max;
     }
 }
