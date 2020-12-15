@@ -1,6 +1,7 @@
 package Menu;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Console {
     //region Write
@@ -349,7 +350,75 @@ public class Console {
     }
     //endregion
 
+    /**
+     * Prints an dynamical created Sub Menu
+     * @param title Title Text
+     * @param subMenus Menus
+     */
+    public void createSubMenu(String title, SubMenu[] subMenus){
+        clear();
+        int headerLength = title.length() + 19;
+        int bottomLength = 0;
+
+        int longestWord = subMenus[0].name.length();
+        for(int i = 1; i < subMenus.length; i++){
+            if(subMenus[i].name.length() > longestWord){
+                longestWord = subMenus[i].name.length();
+            }
+        }
+
+        if(headerLength < (longestWord + 14)){
+            headerLength = longestWord + 14;
+            if(headerLength % 2 != 0){
+                headerLength += 1;
+            }
+            String spacer = "";
+            int ex = headerLength - title.length() - 19;
+            for(int i = 0; i < ex / 2; i++){
+                spacer += "─";
+            }
+            bottomLength = headerLength - 19;
+            writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
+
+        }else{
+            bottomLength = headerLength;
+            writeLine("╔═⸗═══──{ "+title+" }──════╗");//19
+        }
+
+        for(int i = 0; i < subMenus.length; i++){
+            String name = subMenus[i].name;
+            int length = headerLength - (name.length() + 14);
+            String chain = "";
+
+            for(int j = 0; j < length; j++){
+                chain += "─";
+            }
+
+            writeLine("╠═─ "+i+" : "+name+" ⸗"+chain+"──═╣");
+        }
+
+        String bottomFill = "";
+        String bottomFill2 = "";
+
+        for(int i = 0; i < bottomLength; i++){
+            bottomFill += "═";
+            bottomFill2 += "─";
+        }
+
+        writeLine("╠═─ 0 : ←─Back⸗─" + bottomFill2 + "─═╣");
+        writeLine("╚════"+ bottomFill +"════════⸗════╝"); //19
+    }
     //endregion
+}
+
+class SubMenu{
+    int index;
+    String name;
+
+    public SubMenu(int i, String name){
+        this.index = i;
+        this.name = name;
+    }
 }
 
 //region Colors Class

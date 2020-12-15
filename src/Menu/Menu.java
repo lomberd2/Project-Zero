@@ -187,9 +187,10 @@ public class Menu {
             console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
 
             switch (console.readChoice(new int[]{1, 0, 2, 3, 4, 5, 6})){
-                case 1, 2, 3, 4, 5 -> {
+                case 1, 2, 3, 4 -> {
                     console.writeInfo("Function not implemented yet");
                 }
+                case 5 -> arithmeticMeanSelected();
                 case 6 -> {
                     console.writeInfo("Geometric Mean Selected");
                     geometricMeanSelected();
@@ -251,19 +252,26 @@ public class Menu {
 
     //<editor-fold desc="Arithmetic Mean">
     private static void arithmeticMeanSelected(){
+        SubMenu sub = new SubMenu(0,"Something really long");
+        SubMenu sub2 = new SubMenu(1, "Options");
+        SubMenu sub3 = new SubMenu(2, "Op Ist sehr s");
 
+
+        console.createSubMenu("Arithmetic Menu", new SubMenu[]{sub, sub2, sub3});
+
+        console.pressEnterToContinue();
     }
     //</editor-fold>
 
     //<editor-fold desc="Geometric Mean">
     private static void geometricMeanSelected(){
         console.clear();
-        console.writeLine("╔═══──{  Geometric Mean  }──═══╗");
-        console.writeLine("╠═─ 1 : Relative  ────────────═╣");
-        console.writeLine("╠═─ 2 : Absolute ─────────────═╣");
-        console.writeLine("╠═─ 3 : Without both ─────────═╣");
-        console.writeLine("╠═─ 0 : ←─Page─Back───────────═╣");
-        console.writeLine("╚══════════════════════════════╝");
+        console.writeLine("╔═⸗═══──{ Geometric Mean }──════╗");
+        console.writeLine("╠═─ 1 : Relative ⸗─────────────═╣");
+        console.writeLine("╠═─ 2 : Absolute ⸗─────────────═╣");
+        console.writeLine("╠═─ 3 : Without both ⸗─────────═╣");
+        console.writeLine("╠═─ 0 : ←─Page⸗Back────────────═╣");
+        console.writeLine("╚══════════════════════════⸗════╝");
         switch (console.readChoice(new int[]{0,1,2,3})){
             case 1 -> relGeoMean();
             case 2 -> absGeoMean();
@@ -273,7 +281,9 @@ public class Menu {
     }
 
     private static void relGeoMean(){
-        console.getInput("Test");
+        double[] input1 = console.getInput("Test");
+
+        double[] input2 = console.getInput("Test 2");
     }
 
     private static void absGeoMean(){
@@ -295,10 +305,16 @@ public class Menu {
      * Handelling the selection
      */
     private static void growthAndDecaySelected(){
-        console.writeInfo("Please choose whether you want to calculate growth[1] or decay[2]");
-        switch (console.readChoice(new int[]{1,2})){
+        console.clear();
+        console.writeLine("╔═══──{ Growth and Decay }──═══╗");
+        console.writeLine("╠═─ 1 : Growth ←──────────────═╣");
+        console.writeLine("╠═─ 2 : Decay ←───────────────═╣");
+        console.writeLine("╠═─ 0 : ←─Back────────────────═╣");
+        console.writeLine("╚══════════════════════════════╝");
+        switch (console.readChoice(new int[]{0,1,2})){
             case 1 -> growth();
             case 2 -> decay();
+            case 0 -> {}
         }
     }
 
