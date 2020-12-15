@@ -1,6 +1,6 @@
-package Statistik;
+package Statistics;
 
-public class MaxAbweichung {
+public class MaxDeviation {
     /**
      * Get the average of the numbers to calculate the Variance
      * @param numbers Variable one

@@ -1,6 +1,6 @@
-package Statistik;
+package Math;
 
-public class QuadraticheFunktion {
+public class QuadraticEquation {
 
 	
 	

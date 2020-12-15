@@ -1,6 +1,6 @@
-package Statistik;
+package Math;
 
-public class Zerfall {
+public class Decay {
 	
 	/**
 	 * takes the three variables and takes the percent to make a Decay

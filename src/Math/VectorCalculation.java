@@ -1,6 +1,6 @@
-package Vektorrechnung;
+package Math;
 
-public class Vektorrechnung {
+public class VectorCalculation {
 
     /**
      * Multiplication with a Integer Vector with a given number

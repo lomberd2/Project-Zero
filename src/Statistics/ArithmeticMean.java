@@ -1,7 +1,7 @@
-package Statistik;
+package Statistics;
 
 
-public class ArithmetischesMittel {
+public class ArithmeticMean {
 	
 	
 	/**

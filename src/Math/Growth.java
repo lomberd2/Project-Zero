@@ -1,4 +1,4 @@
-package Statistik;
+package Math;
 
 public class Growth {
 

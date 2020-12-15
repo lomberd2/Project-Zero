@@ -1,8 +1,8 @@
-package Statistik;
+package Statistics;
 
 import oop.IO;
 
-public class GeometrischesMittel {
+public class GeometricMean {
 
 	
 	/**

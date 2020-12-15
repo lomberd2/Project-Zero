@@ -1,6 +1,6 @@
-package Matrizenrechnung;
+package Math;
 
-public class Matrizenrechnung {
+public class MatrixCalculation {
 
     //<editor-fold desc="Multiplication With One Number">
 

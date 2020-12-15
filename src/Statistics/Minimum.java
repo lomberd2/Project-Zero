@@ -1,4 +1,4 @@
-package Statistik;
+package Statistics;
 
 public class Minimum {
     /**
