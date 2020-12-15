@@ -401,12 +401,19 @@ public class Console {
         String bottomFill2 = "";
 
         for(int i = 0; i < bottomLength; i++){
-            bottomFill += "═";
+            double flip = Math.random() * 2;
+            int fli = (int)flip;
+            if(fli == 1){
+                bottomFill += "═";
+            }else{
+                bottomFill += "─";
+            }
+
             bottomFill2 += "─";
         }
 
         writeLine("╠═─ 0 : ←─Back⸗─" + bottomFill2 + "─═╣");
-        writeLine("╚════"+ bottomFill +"════════⸗════╝"); //19
+        writeLine("╚═══───══"+ bottomFill +"══───══⸗═╝"); //19
     }
     //endregion
 }
