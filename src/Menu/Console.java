@@ -250,6 +250,7 @@ public class Console {
         }
     }
     //endregion
+
     //endregion
 
     //region Some Methods
@@ -340,6 +341,11 @@ public class Console {
         }
 
         return null;
+    }
+
+    public double[] getInput(String name){
+        writeInfo("For the variable: " + name );
+        return getInput();
     }
     //endregion
 

@@ -6,101 +6,69 @@ public class GeometricMean {
 
 	
 	/**
-	 * get the geometric medium without the absolute frequency and the relative frequency 
-	 * @param n length of the array
+	 * get the geometric medium without the absolute frequency and the relative frequency
 	 * @param geo array
 	 * @return produkt
 	 */
-	public static double geoohne(int n, double [] geo) {
-
-
-		for (int i = 0; i < geo.length; i++) {
-			geo[i] = IO.readDouble();
-		}
-
-		double produkt = 1;
+	public static double getSum(double [] geo) {
+		double sum = 1;
 
 		for (int i = 0; i < geo.length; i++) {
-			produkt = produkt * geo[i];
+			sum = sum * geo[i];
 		}
 
-
-		produkt = Math.pow(Math.E, Math.log(produkt)/n);
-
-
-		return produkt;
+		return sum;
 	}
 	
-	
+	private static double getGeo(double[] geo){
+		return Math.pow(getSum(geo), 1 / (double)geo.length);
+	}
+
 	/**
 	 * get the geometric medium with the absolute frequency but without the relative frequency
-	 * @param n length of the arrays
 	 * @param geo array one	
 	 * @param abs array two
 	 * @return produkt
 	 */
-	public static double geoabs(int n, double[] geo, double [] abs) {
+	public static double getGeoWithAbs(double[] geo, double [] abs) {
 
-		for (int i = 0; i < geo.length; i++) {
-			geo[i] = IO.readDouble();
-		}
+		geo = getGeoWithRe(geo, abs);
 
-		for (int i = 0; i < abs.length; i++) {
-			abs[i] = IO.readDouble();
-		}
+		double countAbs = 0;
 
 		for (int i = 0; i < abs.length; i++) {
-			geo[i] = Math.pow(geo[i], abs[i]);
+			countAbs = countAbs + abs[i];
 		}
 
-		double anzahlabs = 0;
+		double sum = getSum(geo);
+		sum = Math.pow(Math.E, Math.log(sum)/countAbs);
 
-		for (int i = 0; i < abs.length; i++) {
-			anzahlabs = anzahlabs + abs[i];
-		}
-
-
-
-		double produkt = 1;
-
-		for (int i = 0; i < geo.length; i++) {
-			produkt = produkt * geo[i];
-		}
-
-
-		produkt = Math.pow(Math.E, Math.log(produkt)/anzahlabs);
-
-
-		return produkt;
+		return sum;
 	}
 	
 	/**
 	 * get the geometric medium without the absolute frequency but with the relative frequency
-	 * @param n length of the arrays
 	 * @param geo array one	
-	 * @param abs array two
+	 * @param rel array two
 	 * @return produkt
 	 */
-	public static double georel(int n, double [] geo, double [] rel) {
-		for (int i = 0; i < geo.length; i++) {
-			geo[i] = IO.readDouble();
-		}
-
-		for (int i = 0; i < rel.length; i++) {
-			rel[i] = IO.readDouble();
-		}
+	public static double getGeoWithRel(double[] geo, double[] rel) {
 
 		for (int i = 0; i < rel.length; i++) {
 			geo[i] = Math.pow(geo[i], rel[i]);
 		}
 
-		double produkt = 1;
+		return getSum(geo);
+	}
 
-		for (int i = 0; i < geo.length; i++) {
-			produkt = produkt * geo[i];
+
+	public static double[] getGeoWithRe(double[] geo, double[] rel) {
+
+		for (int i = 0; i < rel.length; i++) {
+			geo[i] = Math.pow(geo[i], rel[i]);
 		}
 
-		return produkt;	
+		return geo;
 	}
 
 }

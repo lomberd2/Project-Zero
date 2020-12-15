@@ -186,9 +186,13 @@ public class Menu {
             console.writeLine("╠═─ 0 : ←─Page─Back────────────────────────────────────────────────═╣");
             console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
 
-            switch (console.readChoice(new int[]{1, 0, 2, 3, 4, 5})){
-                case 1, 2, 3, 4 -> {
+            switch (console.readChoice(new int[]{1, 0, 2, 3, 4, 5, 6})){
+                case 1, 2, 3, 4, 5 -> {
                     console.writeInfo("Function not implemented yet");
+                }
+                case 6 -> {
+                    console.writeInfo("Geometric Mean Selected");
+                    geometricMeanSelected();
                 }
                 case 0 ->{
                     return;
@@ -232,6 +236,52 @@ public class Menu {
         double[] input = console.getInput();
         console.printResult("The span is " + Span.getSpan(input));
         console.pressEnterToContinue();
+    }
+    //</editor-fold>
+
+    //</editor-fold>
+
+    //<editor-fold desc="Second Page Functions">
+
+    //<editor-fold desc="Standard Deviation">
+    private static void standardDeviationSelected(){
+
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Arithmetic Mean">
+    private static void arithmeticMeanSelected(){
+
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Geometric Mean">
+    private static void geometricMeanSelected(){
+        console.clear();
+        console.writeLine("╔═══──{  Geometric Mean  }──═══╗");
+        console.writeLine("╠═─ 1 : Relative  ────────────═╣");
+        console.writeLine("╠═─ 2 : Absolute ─────────────═╣");
+        console.writeLine("╠═─ 3 : Without both ─────────═╣");
+        console.writeLine("╠═─ 0 : ←─Page─Back───────────═╣");
+        console.writeLine("╚══════════════════════════════╝");
+        switch (console.readChoice(new int[]{0,1,2,3})){
+            case 1 -> relGeoMean();
+            case 2 -> absGeoMean();
+            case 3 -> withoutGeo();
+            case 0 -> {}
+        }
+    }
+
+    private static void relGeoMean(){
+        console.getInput("Test");
+    }
+
+    private static void absGeoMean(){
+
+    }
+
+    private static void withoutGeo(){
+
     }
     //</editor-fold>
 
