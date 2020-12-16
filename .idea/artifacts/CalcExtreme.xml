@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="CalcExtreme">
+    <output-path>$PROJECT_DIR$/out/artifacts/CalcExtreme</output-path>
+    <root id="root">
+      <element id="archive" name="Project-Zero.jar">
+        <element id="module-output" name="Project-Zero" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

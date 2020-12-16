@@ -1,5 +1,7 @@
 package Menu;
 
+import Statistics.ArithmeticMean;
+import Statistics.Median;
 import Statistics.Span;
 import Math.*;
 
@@ -186,13 +188,17 @@ public class Menu {
             console.writeLine("╠═─ 0 : ←─Page─Back────────────────────────────────────────────────═╣");
             console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
 
-            switch (console.readChoice(new int[]{1, 0, 2, 3, 4, 5, 6})){
-                case 1, 2, 3, 4 -> {
-                    console.writeInfo("Function not implemented yet");
+            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})){
+                case 1 -> {
+                    console.writeInfo("Median Selected", 500);
+                    medianSelected();
+                }
+                case 2, 3, 4 -> {
+                    console.writeInfo("Function not implemented yet", 500);
                 }
                 case 5 -> arithmeticMeanSelected();
                 case 6 -> {
-                    console.writeInfo("Geometric Mean Selected");
+                    console.writeInfo("Geometric Mean Selected", 500);
                     geometricMeanSelected();
                 }
                 case 0 ->{
@@ -244,6 +250,16 @@ public class Menu {
 
     //<editor-fold desc="Second Page Functions">
 
+    //<editor-fold desc="Median">
+    private static void medianSelected(){
+        double[] input = console.getInput("Data Array");
+
+        console.printResult("The median of the given data array is: " + Median.getMedian(input));
+
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
+
     //<editor-fold desc="Standard Deviation">
     private static void standardDeviationSelected(){
 
@@ -259,7 +275,9 @@ public class Menu {
         console.createSubMenu("Arithmetic Menu", new SubMenu[]{sub, sub2, sub3});*/
         console.writeLine("Arithmetic Mean");
 
-        double[] input = console.getInput();
+        double[] input = console.getInput("Data Array");
+
+        console.printResult("The average of the given data is: " + ArithmeticMean.getArithmeticMean(input));
 
         console.pressEnterToContinue();
     }
