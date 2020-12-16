@@ -15,19 +15,17 @@ public class MaxDeviation {
         return numbers;
     }
 
-    public static double[] getVariance(double[] summe){
-        for (int i = 0; i < summe.length; i++){
+    public static double[] getVariance(double[] sum){
+        for (int i = 0; i < sum.length; i++){
         }
 
-        return summe;
+        return sum;
     }
 
-    public static int getMaxDeviation(int zahl1, int zahl2){
+    public static int getMaxDeviation(int number1, int number2){
 
 
-
-
-        return getMaxDeviation(zahl1, zahl2);
+        return getMaxDeviation(number1, number2);
     }
      */
 
@@ -47,9 +45,7 @@ public class MaxDeviation {
             } else if(numberChain[i] > max){
                 max = numberChain[i];
             }
-
         }
-
         double maxDeviation = max - min;
         return maxDeviation;
     }
