@@ -19,11 +19,10 @@ public class Variance {
 
         sumArm = sumArm / variance.length;
 
-        for (int i = 0; i < variance.length; i++){
-            sumVar = (variance[i] - sumArm);
+        for (int i = 0; i < variance.length; i++) {
+            sumVar = (variance[i] - sumArm) * (variance[i] - sumArm);
         }
-        product = sumVar * sumVar;
-        varianceValue = product / variance.length;
+        varianceValue = sumVar / variance.length;
 
         return varianceValue;
     }
