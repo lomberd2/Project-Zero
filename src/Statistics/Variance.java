@@ -4,8 +4,8 @@ public class Variance {
 
     /**
      * Takes the Array variance to calculate the Variance
-     * @param variance array
-     * @return varianceValue
+     * @param variance Array
+     * @return VarianceValue
      */
     public static double getVariance(double[] variance){
         double sumVar = 0;
