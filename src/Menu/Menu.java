@@ -160,7 +160,7 @@ public class Menu {
                     spanMenuSelected();
                 }
                 case 4 -> {
-                    console.writeInfo("Opening: Span");
+                    console.writeInfo("Opening: Maximum Deviation");
                     maxDeviSelected();
                 }
                 case 5 -> {
