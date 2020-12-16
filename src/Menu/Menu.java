@@ -566,8 +566,18 @@ public class Menu {
         }
     }
     //</editor-fold>
-
+    /**
+     * Handling user interaction with vector calc
+     */
     private static void matrixCalcSelected(){
 
+
+            SubMenu menu1 = new SubMenu(1, "Array[i] * x");
+            SubMenu menu2 = new SubMenu(2, "Array[i] + Array[i]");
+            SubMenu menu3 = new SubMenu(3, "Array[i] * Array[i]");
+
+            console.createSubMenu("Vector Calculation", new SubMenu[]{menu1, menu2, menu3});
+
+            vec(console.readChoice(new int[]{0,1,2,3}));
     }
 }
