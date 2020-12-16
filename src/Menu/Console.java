@@ -447,16 +447,18 @@ public class Console {
             if(headerLength % 2 != 0){
                 headerLength += 1;
             }
+
             String spacer = "";
             int ex = headerLength - title.length() - 19;
             for(int i = 0; i < ex / 2; i++){
                 spacer += "─";
             }
-            bottomLength = headerLength - 19;
+
+            bottomLength = longestWord;
             writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
 
         }else{
-            bottomLength = headerLength;
+            bottomLength = headerLength - 19;
             writeLine("╔═⸗═══──{ "+title+" }──════╗");//19
         }
 
