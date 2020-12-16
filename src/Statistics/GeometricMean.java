@@ -4,6 +4,38 @@ import oop.IO;
 
 public class GeometricMean {
 
+	/**
+	 * Geometric Mean
+	 * @param input Data
+	 * @return Geometric Mean
+	 */
+	public static double getGeometricMean(double[] input){
+		double x = 0;
+
+		for(int i = 0; i < input.length; i++){
+			x = x * input[i];
+		}
+
+		return Math.pow(Math.E, Math.log(x) / input.length);
+	}
+
+	/**
+	 * Geometric mean with derivation
+	 * @param input In %
+	 * @return Geometric Mean
+	 */
+	public static double getGeometricMean(double[][] input){
+		double[] temp = new double[input.length];
+
+		for(int i = 0; i < input.length; i++){
+			double val1 = input[i][0];
+			double val2 = input[i][1];
+
+			temp[i] = val1 * (val2 + 1);
+		}
+
+		return getGeometricMean(temp);
+	}
 	
 	/**
 	 * get the geometric medium without the absolute frequency and the relative frequency

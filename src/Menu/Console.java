@@ -160,8 +160,7 @@ public class Console {
     public double[] readInput(){
         ArrayList<Double> inputArray = new ArrayList<Double>();
 
-
-        writeInfo("Type in your numbers and separate them via enter. If your done, just type 'x' and press enter.");
+        writeInfo("Type in your numbers and separate them via enter. If your done, just type 'x' and press enter.", 500);
         writeWithTag("Please enter now your numbers: ");
         while (true){
             try{
@@ -190,6 +189,52 @@ public class Console {
             }
         }
     }
+
+    public double[][] readDoubleInput(String value1Description, String value2Description){
+        ArrayList<double[]> temp = new ArrayList<double[]>();
+        int index = 0;
+
+        writeInfo("Please type in your numbers and separate them via enter.", 1500);
+        boolean running = true;
+        while (running){
+            double input1;
+            double input2;
+            double[] out = new double[2];
+
+            clear();
+
+            writeInfo("Number ["+index+"]: " + value1Description, 500);
+            write("\nInput: ");
+            input1 = IO.readDouble();
+
+            clear();
+
+            writeInfo("Number ["+index+"]: " + value2Description, 500);
+            write("\nInput: ");
+            input2 = IO.readDouble();
+
+            temp.add(new double[]{input1, input2});
+
+            index++;
+
+            clear();
+
+            writeInfo("Do you want to add another number? (Y/N)");
+            switch (readChoice(new String[]{"y","n"})){
+                case "n" -> {running = false;}
+            }
+        }
+
+        double[][] out = new double[temp.size()][2];
+        for(int i = 0; i < temp.size(); i++){
+            double[] xs = temp.get(i);
+            out[i][0] = xs[0];
+            out[i][1] = xs[1];
+        }
+
+        return out;
+    }
+
     //endregion
 
     //region Read Choice

@@ -1,10 +1,9 @@
 package Menu;
 
-import Statistics.ArithmeticMean;
-import Statistics.Median;
-import Statistics.Mode;
-import Statistics.Span;
+import Statistics.*;
 import Math.*;
+
+import java.util.ArrayList;
 
 public class Menu {
     //<editor-fold desc="Header">
@@ -300,29 +299,40 @@ public class Menu {
 
     //<editor-fold desc="Geometric Mean">
     private static void geometricMeanSelected(){
-        console.clear();
+        /*console.clear();
         console.writeLine("╔═⸗═══──{ Geometric Mean }──════╗");
         console.writeLine("╠═─ 1 : Relative ⸗─────────────═╣");
         console.writeLine("╠═─ 2 : Absolute ⸗─────────────═╣");
-        console.writeLine("╠═─ 3 : Without both ⸗─────────═╣");
         console.writeLine("╠═─ 0 : ←─Page⸗Back────────────═╣");
-        console.writeLine("╚══════════════════════════⸗════╝");
+        console.writeLine("╚══════════════════════════⸗════╝");*/
+
+        SubMenu sub = new SubMenu(1,"Normal");
+        SubMenu sub2 = new SubMenu(2, "With %");
+        console.createSubMenu("Geometric Mean", new SubMenu[]{sub, sub2});
+
         switch (console.readChoice(new int[]{0,1,2,3})){
-            case 1 -> relGeoMean();
-            case 2 -> absGeoMean();
-            case 3 -> withoutGeo();
+            case 1 -> geoMeanSelected();
+            case 2 -> geoMeanProSelected();
             case 0 -> {}
         }
     }
 
-    private static void relGeoMean(){
-        double[] input1 = console.getInput("Test");
-
-        double[] input2 = console.getInput("Test 2");
+    /**
+     * User interaction for geometric mean
+     */
+    private static void geoMeanSelected(){
+        double[] input = console.getInput("Data");
+        console.printResult("" + GeometricMean.getGeometricMean(input));
+        console.pressEnterToContinue();
     }
 
-    private static void absGeoMean(){
-
+    /**
+     * User interaction for geometric mean with % given
+     */
+    private static void geoMeanProSelected(){
+        double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the percentage now: ");
+        console.printResult("" + GeometricMean.getGeometricMean(input));
+        console.pressEnterToContinue();
     }
 
     private static void withoutGeo(){
