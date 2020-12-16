@@ -10,7 +10,7 @@ public class GeometricMean {
 	 * @return Geometric Mean
 	 */
 	public static double getGeometricMean(double[] input){
-		double x = 0;
+		double x = 1;
 
 		for(int i = 0; i < input.length; i++){
 			x = x * input[i];
