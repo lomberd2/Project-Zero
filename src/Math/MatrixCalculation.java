@@ -3,7 +3,6 @@ package Math;
 public class MatrixCalculation {
 
     //<editor-fold desc="Multiplication With One Number">
-
     /**
      * Multiplication of a Integer Matrix with a given number
      * @param matrix The matrix that needs to be multiplied
@@ -35,22 +34,9 @@ public class MatrixCalculation {
         }
         return merkMatrix;
     }
-
-    /*public static double[][] multiplicationWithOneNumber(double[][] matrix, int number){
-        double[][] merkMatrix = new double[matrix.length][matrix[0].length];
-
-        for(int i = 0; i < matrix.length; i++){
-            for(int j = 0; j < matrix[i].length; j++){
-                merkMatrix[i][j] = matrix[i][j] * number;
-            }
-        }
-
-        return merkMatrix;
-    }*/
     //</editor-fold>
 
     //<editor-fold desc="Merge 2 Matrix">
-
     /**
      * Addition of two Integer Matrix with the same length
      * @param matrix1 First Matrix to Add
@@ -91,7 +77,6 @@ public class MatrixCalculation {
     //</editor-fold>
 
     //<editor-fold desc="Multiplication With Two Arrays">
-
     /**
      * Multiplication of two Integers Matrix with another
      * @param matrix1 First Matrix to Multiply
@@ -120,7 +105,6 @@ public class MatrixCalculation {
     //</editor-fold>
 
     //<editor-fold desc="Methods">
-
     /**
      * Outsourced Multiplication of two Integer Matrices
      * @param matrix1 First Matrix to Multiply

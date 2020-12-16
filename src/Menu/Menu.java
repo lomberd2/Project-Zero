@@ -3,9 +3,8 @@ package Menu;
 import Statistics.*;
 import Math.*;
 
-import java.util.ArrayList;
-
 public class Menu {
+
     //<editor-fold desc="Header">
     public static Console console = new Console();
 
@@ -17,7 +16,6 @@ public class Menu {
      * - SPECIAL CHAR : ░▒▓╠═ ═╣
      */
     //</editor-fold>
-
 
     //<editor-fold desc="Startup">
     /**
@@ -566,6 +564,8 @@ public class Menu {
         }
     }
     //</editor-fold>
+
+    //<editor-fold desc="Matrix Calculation">
     /**
      * Handling user interaction with vector calc
      */
@@ -580,6 +580,10 @@ public class Menu {
             matrixCalc(choice);
     }
 
+    /**
+     * Matrix Calc stuff
+     * @param choice
+     */
     private static void matrixCalc(int choice){
         console.writeWithTag("Enter the size of i : ");
         int i = console.readInt();
@@ -609,4 +613,6 @@ public class Menu {
             }
         }
     }
+    //</editor-fold>
+
 }
