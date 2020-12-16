@@ -7,7 +7,6 @@ public class Mode {
      * @param modeChain Array
      * @return Mode
      */
-
     public static double getMode(double[] modeChain) {
         
         double mode = 0;

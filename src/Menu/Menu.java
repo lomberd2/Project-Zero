@@ -2,6 +2,7 @@ package Menu;
 
 import Statistics.ArithmeticMean;
 import Statistics.Median;
+import Statistics.Mode;
 import Statistics.Span;
 import Math.*;
 
@@ -193,7 +194,11 @@ public class Menu {
                     console.writeInfo("Median Selected", 500);
                     medianSelected();
                 }
-                case 2, 3, 4 -> {
+                case 2 -> {
+                    console.writeInfo("Mode Selected", 500);
+                    modeSelected();
+                }
+                case 3, 4 -> {
                     console.writeInfo("Function not implemented yet", 500);
                 }
                 case 5 -> arithmeticMeanSelected();
@@ -255,6 +260,16 @@ public class Menu {
         double[] input = console.getInput("Data Array");
 
         console.printResult("The median of the given data array is: " + Median.getMedian(input));
+
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Mode">
+    private static void modeSelected(){
+        double[] input = console.getInput("Data Array");
+
+        console.printResult("The mode of the given data array is: " + Mode.getMode(input));
 
         console.pressEnterToContinue();
     }
