@@ -129,7 +129,7 @@ public class Console {
         write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + "\n");
         for(double value: output){
             i++;
-            write("\tArray[i] : " + value + "\n");
+            write("\tArray["+i+"] : " + value + "\n");
         }
         write(Colors.RESET + "\n\n");
     }
