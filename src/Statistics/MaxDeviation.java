@@ -36,7 +36,7 @@ public class MaxDeviation {
         double min = numberChain[0];
         double max = numberChain[0];
 
-        for(int i = 0; i < numberChain.length; i++) {
+        for(int i = 1; i < numberChain.length; i++) {
             if(numberChain[i] < min){
                 min = numberChain[i];
             } else if(numberChain[i] > max){
