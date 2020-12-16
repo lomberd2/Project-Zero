@@ -55,7 +55,7 @@ public class GeometricMean {
 	}
 
 	public static double getGeometricMeanRel(double[][] input){
-		double temp = 0;
+		double temp = 1;
 
 		for(int i = 0; i < input.length; i++){
 			double val1 = input[i][0];
