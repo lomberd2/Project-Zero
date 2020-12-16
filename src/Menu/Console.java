@@ -446,6 +446,7 @@ public class Console {
             headerLength = longestWord + 14;
             String spacer = "";
 
+            //19
             if(headerLength % 2 != 0){
                 headerLength += 1;
 
@@ -454,7 +455,6 @@ public class Console {
                     spacer += "─";
                 }
 
-                writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
             }else{
 
                 int ex = headerLength - title.length() - 19;
@@ -468,8 +468,8 @@ public class Console {
                     spacer += "─";
                 }
 
-                writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
             }
+            writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
 
 
             bottomLength = headerLength - 19;

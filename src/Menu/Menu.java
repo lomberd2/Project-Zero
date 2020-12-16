@@ -136,7 +136,7 @@ public class Menu {
             console.writeLine("╠═─ 1 : Minimum (Get the lowest number from two) ──────────────────═╣");
             console.writeLine("╠═─ 2 : Maximum (Get the highest number from two) ─────────────────═╣");
             console.writeLine("╠═─ 3 : Span (Get the range between min and max) ──────────────────═╣");
-            console.writeLine("╠═─ 4 : Maximum deviation between two neighboring measured values ─═╣");
+            console.writeLine("╠═─ 4 : Maximum deviation of two neighboring measured values ──────═╣");
             console.writeLine("╠═─ 5 : Minimal deviation of two neighboring measured values ──────═╣");
             console.writeLine("╠═─ 6 : Next Page ─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─═╣");
             console.writeLine("╠═─ 0 : Exit ──────────────────────────────────────────────────────═╣");
