@@ -160,7 +160,7 @@ public class Menu {
                     spanMenuSelected();
                 }
                 case 4 -> {
-                    console.writeInfo("Opening: Span");
+                    console.writeInfo("Opening: Maximum Deviation");
                     maxDeviSelected();
                 }
                 case 5 -> {
@@ -259,11 +259,18 @@ public class Menu {
     }
     //</editor-fold>
 
+    //<editor-fold desc="Maximum Deviation">
+    /**
+     * User interaction methode for Maximum Deviation
+     */
     private static void maxDeviSelected(){
         double[] input = console.getInput();
         console.printResult("The maximum Deviation is: " + MaxDeviation.getMaxDeviation(input));
         console.pressEnterToContinue();
     }
+    //</editor-fold>
+
+
 
     //</editor-fold>
 
