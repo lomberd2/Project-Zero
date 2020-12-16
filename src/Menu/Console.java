@@ -205,13 +205,13 @@ public class Console {
 
             writeInfo("Number ["+index+"]: " + value1Description, 500);
             write("\nInput: ");
-            input1 = IO.readDouble();
+            input1 = readDouble();
 
             clear();
 
             writeInfo("Number ["+index+"]: " + value2Description, 500);
             write("\nInput: ");
-            input2 = IO.readDouble();
+            input2 = readDouble();
 
             temp.add(new double[]{input1, input2});
 

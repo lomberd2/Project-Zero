@@ -36,7 +36,7 @@ public class IO {
     public static double readDouble() {
         while (true) {
             try {
-                return Integer.parseInt(reader.readLine());
+                return Double.parseDouble(reader.readLine());
             } catch (Exception e) {
                 if (Main.isDebug) {
                     e.printStackTrace();
