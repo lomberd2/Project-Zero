@@ -444,22 +444,46 @@ public class Console {
 
         if(headerLength < (longestWord + 14)){
             headerLength = longestWord + 14;
+            String spacer = "";
+
             if(headerLength % 2 != 0){
                 headerLength += 1;
+
+                int ex = headerLength - title.length() - 19;
+                for(int i = 0; i < ex / 2; i++){
+                    spacer += "─";
+                }
+
+                writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
+            }else{
+
+                int ex = headerLength - title.length() - 19;
+
+                if(ex % 2 != 0){
+                    ex = ex + 1;
+                    headerLength++;
+                }
+
+                for(int i = 0; i < ex / 2; i++){
+                    spacer += "─";
+                }
+
+                writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
             }
 
-            String spacer = "";
-            int ex = headerLength - title.length() - 19;
-            for(int i = 0; i < ex / 2; i++){
-                spacer += "─";
-            }
 
-            bottomLength = longestWord;
-            writeLine("╔═⸗═══─"+spacer+"─{ "+title+" }─"+spacer+"─════╗");//19
+            bottomLength = headerLength - 19;
+
 
         }else{
-            bottomLength = headerLength - 19;
-            writeLine("╔═⸗═══──{ "+title+" }──════╗");//19
+            if(headerLength % 2 != 0){
+                headerLength += 1;
+                bottomLength = headerLength - 19;
+                writeLine("╔═⸗═══──{ "+title+" }───════╗");//20
+            }else{
+                bottomLength = headerLength - 19;
+                writeLine("╔═⸗═══──{ "+title+" }──════╗");//19
+            }
         }
 
         for(int i = 0; i < subMenus.length; i++){
