@@ -45,16 +45,14 @@ public class IO {
     public static double readNumber() {
         while (true) {
             try {
-                String input = reader.readLine();
-                if (input.contains(",")) {
-                    input.replace(",", ".");
-                }
+                String input = reader.readLine().trim().toLowerCase();
+                input.replace(",", ".");
                 return Double.parseDouble(input);
             } catch (Exception e) {
                 if (Main.isDebug) {
                     e.printStackTrace();
                 } else {
-                    console.writeError("Only numbers are allowed!");
+                    console.writeError("Only double numbers are allowed!");
                 }
             }
         }
