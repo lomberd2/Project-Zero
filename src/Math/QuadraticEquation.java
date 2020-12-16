@@ -10,14 +10,10 @@ public class QuadraticEquation {
 	 * @param x Variable four
 	 * @return Y / f(x)
 	 */
-	// Eig fällt mir auf ist nicht unbedingt benötigt
 	public static double getSquareFunctionToY(double a, double b, double c, double x) {
-
-		// funktion im moment a x² + bx +c
 
 		double y = (((a * x) * (a * x)) + (b * x) + c);
 		return y;
-		// ein wert rückgabe für Lösung mit der Variable x
 	}
 
 	/**
@@ -32,8 +28,6 @@ public class QuadraticEquation {
 
 		double p = b / a;
 		double q = c / a;
-
-		// funktion im moment x² + px + q(PQ-Formel)
 
 		double x1 = -(p / 2) + Math.sqrt(((p / 2) * (p / 2)) - q);
 		double x2 = -(p / 2) - Math.sqrt(((p / 2) * (p / 2)) - q);
