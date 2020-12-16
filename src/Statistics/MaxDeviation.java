@@ -31,6 +31,11 @@ public class MaxDeviation {
     }
      */
 
+    /**
+     * Takes the Array numberChain to get the MaxDeviation
+     * @param numberChain Array
+     * @return maxDeviation
+     */
     public static double getMaxDeviation(double [] numberChain){
 
         double min = numberChain[0];
