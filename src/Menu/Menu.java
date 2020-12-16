@@ -265,7 +265,7 @@ public class Menu {
      */
     private static void maxDeviSelected(){
         double[] input = console.getInput();
-        console.printResult("The maximum Deviation is: " + MaxDeviation.getMaxDeviation(input));
+        console.printResult("The maximum Deviation is: " + Deviation.getMaxDeviation(input));
         console.pressEnterToContinue();
     }
     //</editor-fold>
