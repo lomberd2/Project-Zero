@@ -15,6 +15,7 @@ public class VectorCalculation {
         }
         return vector;
     }
+
     /**
      * Multiplication with a Double Vector with a given number
      * @param array The Vector that needs to be multiplied

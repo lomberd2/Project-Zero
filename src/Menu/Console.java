@@ -113,10 +113,25 @@ public class Console {
     //region Print Result
     /**
      * Prints input as a result
-     * @param input Result
+     * @param text Result
      */
-    public void printResult(String input){
-        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + input + Colors.RESET + "\n\n");
+    public void printResult(String text){
+        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + text + Colors.RESET + "\n\n");
+    }
+
+    /**
+     * Prints an double array as an result
+     * @param text name
+     * @param output
+     */
+    public void printResult(double[]output){
+        int i = 0;
+        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + "\n");
+        for(double value: output){
+            i++;
+            write("\tArray[i] : " + value + "\n");
+        }
+        write(Colors.RESET + "\n\n");
     }
     //endregion
 
@@ -190,6 +205,12 @@ public class Console {
         }
     }
 
+    /**
+     * Same as above but with Matrix
+     * @param value1Description
+     * @param value2Description
+     * @return
+     */
     public double[][] readDoubleInput(String value1Description, String value2Description){
         ArrayList<double[]> temp = new ArrayList<double[]>();
         int index = 0;
@@ -233,6 +254,20 @@ public class Console {
         }
 
         return out;
+    }
+
+    public double[] readInput(int size){
+        double[] temp = new double[size];
+        int i = 0;
+        clear();
+        writeInfo("Please enter the values for an array with the size of " + size);
+        for(double input: temp){
+            i++;
+            write("[INPUT] Number ["+i+"]: ");
+            input = readDouble();
+        }
+
+        return temp;
     }
 
     //endregion

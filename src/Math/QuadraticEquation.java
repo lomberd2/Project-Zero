@@ -1,9 +1,6 @@
 package Math;
 
 public class QuadraticEquation {
-
-	
-	
 	/**
 	 * input of a square function to get the roots of the function
 	 * @param a variable one

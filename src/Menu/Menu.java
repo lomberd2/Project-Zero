@@ -98,9 +98,12 @@ public class Menu {
             switch (console.readChoice(new int[]{0,1,2,3,4,5})){
                 case 1 -> statistic();
                 case 2 -> growthAndDecaySelected();
-                case 3, 4, 5 ->{
-                    console.writeInfo("Function not implemented yet");
+                case 3 -> {
+                    console.writeInfo("Opening: Quadratic Equation");
+                    quadraticEquationSelected();
                 }
+                case 4 -> vectorCalculationSelected();
+                case 5 -> console.writeInfo("Function not implemented yet");
                 case 0 -> {
                     return;
                 }
@@ -164,7 +167,8 @@ public class Menu {
                     maxDeviSelected();
                 }
                 case 5 -> {
-                    console.writeInfo("Not implemented yet");
+                    console.writeInfo("Opening: Minimum Deviation");
+                    minDeviSelected();
                 }
                 case 6 ->{
                     printStatisticsMenuPage2();
@@ -261,7 +265,7 @@ public class Menu {
 
     //<editor-fold desc="Maximum Deviation">
     /**
-     * User interaction methode for Maximum Deviation
+     * User interaction methode for maximal deviation
      */
     private static void maxDeviSelected(){
         double[] input = console.getInput();
@@ -270,13 +274,25 @@ public class Menu {
     }
     //</editor-fold>
 
-
+    //<editor-fold desc="Minimum Deviation">
+    /**
+     * User interaction methode for minimal deviation
+     */
+    private static void minDeviSelected(){
+        double[] input = console.getInput();
+        console.printResult("Min. Deviation: " + Deviation.getMinDeviation(input));
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
 
     //</editor-fold>
 
     //<editor-fold desc="Second Page Functions">
 
     //<editor-fold desc="Median">
+    /**
+     * User interaction methode for median
+     */
     private static void medianSelected(){
         double[] input = console.getInput("Data Array");
 
@@ -287,6 +303,9 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Mode">
+    /**
+     * User interaction methode for mode
+     */
     private static void modeSelected(){
         double[] input = console.getInput("Data Array");
 
@@ -296,13 +315,21 @@ public class Menu {
     }
     //</editor-fold>
 
+    //<editor-fold desc="Variant">
+    /**
+     * User interaction methode for variant
+     */
     private static void varianceSelected(){
         double[] input = console.getInput("Data");
         console.printResult("The variance is: " + Variance.getVariance(input));
         console.pressEnterToContinue();
     }
+    //</editor-fold>
 
     //<editor-fold desc="Standard Deviation">
+    /**
+     * User interaction methode for standard deviation
+     */
     private static void standardDeviationSelected(){
         double[] input = console.getInput("Data");
         console.printResult("The standard deviation is: " + StandardDeviation.getStandardDeviation(input));
@@ -311,6 +338,9 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Arithmetic Mean">
+    /**
+     * User interaction methode for arithmetic mean
+     */
     private static void arithmeticMeanSelected(){
         /*SubMenu sub = new SubMenu(1,"Something really long");
         SubMenu sub2 = new SubMenu(2, "Options");
@@ -328,6 +358,9 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Geometric Mean">
+    /**
+     * User interaction methode for geometric mean
+     */
     private static void geometricMeanSelected(){
         /*console.clear();
         console.writeLine("╔═⸗═══──{ Geometric Mean }──════╗");
@@ -451,5 +484,77 @@ public class Menu {
     }
     //</editor-fold>
 
+    //</editor-fold>
+
+    //<editor-fold desc="Quadratic Equation">
+    /**
+     * Handles user input for quadratic equation
+     */
+    private static void quadraticEquationSelected(){
+        console.writeInfo("Please enter value a from 'ax²'");
+        console.write("\nvalue: ");
+        double a = console.readDouble();
+
+        console.writeInfo("Please enter value b from 'bx");
+        console.write("\nvalue: ");
+        double b = console.readDouble();
+
+        console.writeInfo("Please enter value c");
+        console.write("\nvalue: ");
+        double c = console.readDouble();
+
+        console.printResult("Result: " + QuadraticEquation.getSquareFunction(a,b,c));
+
+        console.pressEnterToContinue();
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Vector Calculation">
+    /**
+     * Handling user interaction with vector calc
+     */
+    private static void vectorCalculationSelected(){
+        SubMenu menu1 = new SubMenu(1, "Array[i] * x");
+        SubMenu menu2 = new SubMenu(2, "Array[i] + Array[i]");
+        SubMenu menu3 = new SubMenu(3, "Array[i] * Array[i]");
+
+        console.createSubMenu("Vector Calculation", new SubMenu[]{menu1, menu2, menu3});
+
+        vec(console.readChoice(new int[]{0,1,2,3}));
+    }
+
+    /**
+     * More stuff from above just in another class
+     * @param choice
+     */
+    private static void vec(int choice){
+        double[] arr = console.getInput("Array");
+        if(choice == 1){
+            console.writeInfo("Please enter now the amount by which to multiply: ");
+            console.write("\nvalue: ");
+
+            double num = console.readDouble();
+
+            console.printResult(VectorCalculation.getMultiplicationWithOneNumber(arr, num));
+        }
+        if(choice == 2){
+            console.pressEnterToContinue();
+            console.writeInfo("Please enter the next array now");
+            console.clear();
+
+            double[] num = console.readInput(arr.length);
+
+            console.printResult(VectorCalculation.getAdditionTwoVectors(arr, num));
+        }
+        if(choice == 3){
+            console.pressEnterToContinue();
+            console.writeInfo("Please enter the next array now");
+            console.clear();
+
+            double[] num = console.readInput(arr.length);
+
+            console.printResult(VectorCalculation.getMultiplicationTwoVectors(arr, num));
+        }
+    }
     //</editor-fold>
 }
