@@ -28,31 +28,28 @@ public class QuadraticEquation {
 	 * @return zeroPoint
 	 */
 
-	public static double[] getSquareFunctionZeroPoint(double a, double b, double c){
+	public static double[] getSquareFunctionZeroPoint(double a, double b, double c) {
 
 		double p = b / a;
 		double q = c / a;
 
 		// funktion im moment x² + px + q(PQ-Formel)
 
-		double x1 = -(p/2) + Math.sqrt(((p/2) * (p/2)) - q);
-		double x2 = -(p/2) - Math.sqrt(((p/2) * (p/2)) - q);
+		double x1 = -(p / 2) + Math.sqrt(((p / 2) * (p / 2)) - q);
+		double x2 = -(p / 2) - Math.sqrt(((p / 2) * (p / 2)) - q);
 
-		double d = ((p/2) * (p/2) - q);
-		double[] zeroPoint = new double[2];
-		if (d < 0) {
+		double d = ((p / 2) * (p / 2) - q);
 
-			//System.out.println("es gibt keine Nullstellen");
-		} else if (d == 0){
+		if (d == 0) {
+			double[] zeroPoint = new double[1];
 			zeroPoint[0] = x1;
-			//System.out.println("es gibt eine Nullstelle = x1: " + x1);
+			return zeroPoint;
 		} else if (d > 0) {
+			double[] zeroPoint = new double[2];
 			zeroPoint[0] = x1;
 			zeroPoint[1] = x2;
-			//System.out.println("es gibt 2 Nullstellen = x1: " + x1 + " x2: " + x2);
+			return zeroPoint;
 		}
-
-		return zeroPoint;
-		// Rückgabe wieviele Nullstellen es sind und Welche werte die jeweils haben
+		return null;
 	}
 }

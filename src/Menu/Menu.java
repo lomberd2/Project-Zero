@@ -503,7 +503,13 @@ public class Menu {
         console.write("\nvalue: ");
         double c = console.readDouble();
 
-        console.printResult("Result: " + QuadraticEquation.getSquareFunction(a,b,c));
+        console.writeInfo("Please enter value x");
+        console.write("\nvalue: ");
+        double x = console.readDouble();
+
+        console.writeLine("Zero Points Result : ", Colors.GREEN_BACKGROUND);
+        console.printResult(QuadraticEquation.getSquareFunctionZeroPoint(a,b,c));
+        console.printResult("f(x) = " + QuadraticEquation.getSquareFunctionToY(a, b, c, x));
 
         console.pressEnterToContinue();
     }
