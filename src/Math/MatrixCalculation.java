@@ -98,7 +98,7 @@ public class MatrixCalculation {
      * @param matrix2 Second Matrix to Multiply
      * @return Multiplied Matrix
      */
-    public static int[][] multiplicateTwoMatrix(int[][] matrix1, int[][] matrix2){
+    public static int[][] multiTwoMatrix(int[][] matrix1, int[][] matrix2){
         if(!checkMatrixIsSame(matrix1, matrix2)){
             return null;
         }
@@ -111,7 +111,7 @@ public class MatrixCalculation {
      * @param matrix2 Second Matrix to Multiply
      * @return Multiplied Matrix
      */
-    public static double[][] multiplicateTwoMatrix(double[][] matrix1, double[][] matrix2){
+    public static double[][] multiTwoMatrix(double[][] matrix1, double[][] matrix2){
         if(!checkMatrixIsSame(matrix1, matrix2)){
             return null;
         }

@@ -570,14 +570,43 @@ public class Menu {
      * Handling user interaction with vector calc
      */
     private static void matrixCalcSelected(){
+            SubMenu menu1 = new SubMenu(1, "Array[i][j] * x");
+            SubMenu menu2 = new SubMenu(2, "Array[i][j] + Array[i][j]");
+            SubMenu menu3 = new SubMenu(3, "Array[i][j] * Array[i][j]");
 
+            console.createSubMenu("Matrix Calculation", new SubMenu[]{menu1, menu2, menu3});
 
-            SubMenu menu1 = new SubMenu(1, "Array[i] * x");
-            SubMenu menu2 = new SubMenu(2, "Array[i] + Array[i]");
-            SubMenu menu3 = new SubMenu(3, "Array[i] * Array[i]");
+            int choice = console.readChoice(new int[]{0,1,2,3});
+            matrixCalc(choice);
+    }
 
-            console.createSubMenu("Vector Calculation", new SubMenu[]{menu1, menu2, menu3});
+    private static void matrixCalc(int choice){
+        console.writeWithTag("Enter the size of i : ");
+        int i = console.readInt();
 
-            vec(console.readChoice(new int[]{0,1,2,3}));
+        console.writeWithTag("Enter the size of j : ");
+        int j = console.readInt();
+
+        console.writeInfo("Enter now the first array");
+        double[][] matrix1 = console.readDoubleInput(i, j);
+
+        if(choice == 1){
+            console.writeWithTag("Enter the value to multiply with : ");
+            double multi = console.readInt();
+
+            console.printResult(MatrixCalculation.multiplicationWithOneNumber(matrix1, multi));
+            console.pressEnterToContinue();
+        }else {
+            console.writeInfo("Enter now the second array");
+            double[][] matrix2 = console.readDoubleInput(i, j);
+
+            if (choice == 2) {
+                console.printResult(MatrixCalculation.mergeMatrix(matrix1, matrix2));
+                console.pressEnterToContinue();
+            } else if (choice == 3) {
+                console.printResult(MatrixCalculation.multiTwoMatrix(matrix1, matrix2));
+                console.pressEnterToContinue();
+            }
+        }
     }
 }

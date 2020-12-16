@@ -50,6 +50,6 @@ public class QuadraticEquation {
 			zeroPoint[1] = x2;
 			return zeroPoint;
 		}
-		return null;
+		return new double[0];
 	}
 }

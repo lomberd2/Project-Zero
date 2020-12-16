@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Console {
+    //<editor-fold desc="All Write">
     //region Write
     /**
      * Modified Print
@@ -109,6 +110,7 @@ public class Console {
         }
     }
     //endregion
+    //</editor-fold>
 
     //region Print Result
     /**
@@ -121,15 +123,28 @@ public class Console {
 
     /**
      * Prints an double array as an result
-     * @param text name
      * @param output
      */
-    public void printResult(double[]output){
+    public void printResult(double[] output){
         int i = 0;
         write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + "\n");
         for(double value: output){
             i++;
             write("\tArray["+i+"] : " + value + "\n");
+        }
+        write(Colors.RESET + "\n\n");
+    }
+
+    /**
+     * Prints an matrix array as an result
+     * @param output
+     */
+    public void printResult(double[][] output){
+        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + "\n");
+        for(int i = 0; i < output.length; i++){
+            for(int j = 0; j < output[i].length; j++){
+                write("Value for Array["+i+"]["+j+"] : " + output[i][j] + "\n");
+            }
         }
         write(Colors.RESET + "\n\n");
     }
@@ -253,6 +268,23 @@ public class Console {
             out[i][1] = xs[1];
         }
 
+        return out;
+    }
+
+    /**
+     * Reads matrix array
+     * @param i size of i
+     * @param j size of j
+     * @return matrix
+     */
+    public double[][] readDoubleInput(int i, int j){
+        double[][] out = new double[i][j];
+        for(int is = 0; i < out.length; is++){
+            for(int js = 0; js < j; js++){
+                write("Please enter value for Array["+is+"]["+js+"] : ");
+                out[is][js] = readDouble();
+            }
+        }
         return out;
     }
 
