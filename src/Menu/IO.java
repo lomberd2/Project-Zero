@@ -45,9 +45,9 @@ public class IO {
     public static double readNumber() {
         while (true) {
             try {
-                String input = reader.readLine().trim().toLowerCase();
-                input.replace(",", ".");
-                return Double.parseDouble(input);
+                String input = readAnything();
+                double out = Double.parseDouble(input.toLowerCase().trim().replace(",", "."));
+                return out;
             } catch (Exception e) {
                 if (Main.isDebug) {
                     e.printStackTrace();

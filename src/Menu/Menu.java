@@ -197,8 +197,13 @@ public class Menu {
                     console.writeInfo("Mode Selected", 500);
                     modeSelected();
                 }
-                case 3, 4 -> {
-                    console.writeInfo("Function not implemented yet", 500);
+                case 3 -> {
+                    console.writeInfo("Variance Selected", 500);
+                    varianceSelected();
+                }
+                case 4 -> {
+                    console.writeInfo("Deviation Selected", 500);
+                    standardDeviationSelected();
                 }
                 case 5 -> arithmeticMeanSelected();
                 case 6 -> {
@@ -274,9 +279,17 @@ public class Menu {
     }
     //</editor-fold>
 
+    private static void varianceSelected(){
+        double[] input = console.getInput("Data");
+        console.printResult("The variance is: " + Variance.getVariance(input));
+        console.pressEnterToContinue();
+    }
+
     //<editor-fold desc="Standard Deviation">
     private static void standardDeviationSelected(){
-
+        double[] input = console.getInput("Data");
+        console.printResult("The standard deviation is: " + StandardDeviation.getStandardDeviation(input));
+        console.pressEnterToContinue();
     }
     //</editor-fold>
 
@@ -335,9 +348,6 @@ public class Menu {
         console.pressEnterToContinue();
     }
 
-    private static void withoutGeo(){
-
-    }
     //</editor-fold>
 
     //</editor-fold>
