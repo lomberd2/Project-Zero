@@ -34,17 +34,7 @@ public class IO {
      * @return double
      */
     public static double readDouble() {
-        while (true) {
-            try {
-                return Double.parseDouble(reader.readLine());
-            } catch (Exception e) {
-                if (Main.isDebug) {
-                    e.printStackTrace();
-                } else {
-                    console.writeError("Only double types are allowed! Try again!");
-                }
-            }
-        }
+        return readNumber();
     }
 
     /**
