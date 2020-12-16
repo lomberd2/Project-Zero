@@ -319,13 +319,15 @@ public class Menu {
         console.writeLine("╠═─ 0 : ←─Page⸗Back────────────═╣");
         console.writeLine("╚══════════════════════════⸗════╝");*/
 
-        SubMenu sub = new SubMenu(1,"Normal");
-        SubMenu sub2 = new SubMenu(2, "With %");
-        console.createSubMenu("Geometric Mean", new SubMenu[]{sub, sub2});
+        SubMenu sub = new SubMenu(1,"Unbalanced");
+        SubMenu sub2 = new SubMenu(2, "Balanced with 'Relative' given");
+        SubMenu sub3 = new SubMenu(3, "Balanced with 'Absolute' given");
+        console.createSubMenu("Geometric Mean", new SubMenu[]{sub, sub2, sub3});
 
         switch (console.readChoice(new int[]{0,1,2,3})){
             case 1 -> geoMeanSelected();
-            case 2 -> geoMeanProSelected();
+            case 2 -> geoMeanRelSelected();
+            case 3 -> geoMeanAbsSelected();
             case 0 -> {}
         }
     }
@@ -340,11 +342,20 @@ public class Menu {
     }
 
     /**
-     * User interaction for geometric mean with % given
+     * User interaction for geometric mean with relative frequency given
      */
-    private static void geoMeanProSelected(){
-        double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the percentage now: ");
-        console.printResult("" + GeometricMean.getGeometricMean(input));
+    private static void geoMeanRelSelected(){
+        double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the relative frequency now: ");
+        console.printResult("" + GeometricMean.getGeometricMeanRel(input));
+        console.pressEnterToContinue();
+    }
+
+    /**
+     * User interaction for geometric mean with absolute frequency given
+     */
+    private static void geoMeanAbsSelected(){
+        double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the absolute frequency now: ");
+        console.printResult("" + GeometricMean.getGeometricMeanAbs(input));
         console.pressEnterToContinue();
     }
 

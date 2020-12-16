@@ -20,21 +20,51 @@ public class GeometricMean {
 	}
 
 	/**
+	 * Geometric Mean with abs
+	 * @param input Data
+	 * @return Geometric Mean
+	 */
+	public static double getGeometricMean(double[] input, int abs){
+		double x = 1;
+
+		for(int i = 0; i < input.length; i++){
+			x = x * input[i];
+		}
+
+		return Math.pow(Math.E, Math.log(x) / abs);
+	}
+
+	/**
 	 * Geometric mean with derivation
 	 * @param input In %
 	 * @return Geometric Mean
 	 */
-	public static double getGeometricMean(double[][] input){
+	public static double getGeometricMeanAbs(double[][] input){
 		double[] temp = new double[input.length];
+		int abs = 0;
 
 		for(int i = 0; i < input.length; i++){
 			double val1 = input[i][0];
 			double val2 = input[i][1];
 
-			temp[i] = val1 * (val2 + 1);
+			abs += val2;
+			temp[i] = Math.pow(val1, val2);
 		}
 
-		return getGeometricMean(temp);
+		return getGeometricMean(temp, abs);
+	}
+
+	public static double getGeometricMeanRel(double[][] input){
+		double temp = 0;
+
+		for(int i = 0; i < input.length; i++){
+			double val1 = input[i][0];
+			double val2 = input[i][1];
+
+			temp = temp * Math.pow(val1, val2);
+		}
+
+		return temp;
 	}
 	
 	/**
