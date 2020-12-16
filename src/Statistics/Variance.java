@@ -10,7 +10,6 @@ public class Variance {
     public static double getVariance(double[] variance){
         double sumVar = 0;
         double sumArm = 0;
-        double product;
         double varianceValue;
 
         for (int i = 0; i < variance.length; i++){
