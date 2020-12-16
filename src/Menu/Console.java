@@ -254,6 +254,35 @@ public class Console {
 
     //endregion
 
+    //region ReadAndWrite Arrays
+    private ArrayList<double[]> savedArr = new ArrayList<double[]>();
+
+    /**
+     * Saves a given double array into the saved arr list
+     * @param arr Arr to save
+     */
+    public void saveCurrentArray(double[] arr){
+        savedArr.add(arr);
+    }
+
+    /**
+     * Gets all saved Arrays and returns them
+     * @return ArrayList with all saved arrays
+     */
+    public ArrayList<double[]> getAllSavedArrays(){
+        return savedArr;
+    }
+
+    /**
+     * Finds an specific array in the list and returns it
+     * @param index Where to find it
+     * @return Found Array
+     */
+    public double[] getSpecificArray(int index){
+        return savedArr.get(index);
+    }
+    //endregion
+
     //region Some Methods
 
     //region Press Enter To Continue
@@ -350,6 +379,7 @@ public class Console {
     }
     //endregion
 
+    //region Create Sub Menu
     /**
      * Prints an dynamical created Sub Menu
      * @param title Title Text
@@ -416,8 +446,11 @@ public class Console {
         writeLine("╚═══───══"+ bottomFill +"══───══⸗═╝"); //19
     }
     //endregion
+
+    //endregion
 }
 
+//region SUBMENU Class
 class SubMenu{
     int index;
     String name;
@@ -427,6 +460,7 @@ class SubMenu{
         this.name = name;
     }
 }
+//endregion
 
 //region Colors Class
 /**

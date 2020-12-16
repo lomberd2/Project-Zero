@@ -252,12 +252,14 @@ public class Menu {
 
     //<editor-fold desc="Arithmetic Mean">
     private static void arithmeticMeanSelected(){
-        SubMenu sub = new SubMenu(1,"Something really long");
+        /*SubMenu sub = new SubMenu(1,"Something really long");
         SubMenu sub2 = new SubMenu(2, "Options");
         SubMenu sub3 = new SubMenu(3, "Op Ist sehr s");
 
+        console.createSubMenu("Arithmetic Menu", new SubMenu[]{sub, sub2, sub3});*/
+        console.writeLine("Arithmetic Mean");
 
-        console.createSubMenu("Arithmetic Menu", new SubMenu[]{sub, sub2, sub3});
+        double[] input = console.getInput();
 
         console.pressEnterToContinue();
     }

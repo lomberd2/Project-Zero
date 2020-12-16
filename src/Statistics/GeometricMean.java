@@ -30,7 +30,7 @@ public class GeometricMean {
 	 * @param abs array two
 	 * @return produkt
 	 */
-	public static double getGeoWithAbs(double[] geo, double [] abs) {
+	public static double getGeoWithAbs(double[] geo, double[] abs) {
 
 		geo = getGeoWithRe(geo, abs);
 
