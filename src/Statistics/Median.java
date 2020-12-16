@@ -1,7 +1,5 @@
 package Statistics;
 
-import Menu.IO;
-
 public class Median {
     /*
 	  "test"
@@ -19,22 +17,16 @@ public class Median {
 	 */
 
     /**
-     * takes the array 'numberChain' to calculate the median
-     * @param numberChain array
-     * @return median
+     * Takes the array 'numberChain' to calculate the median
+     * @param numberChain Array
+     * @return Median
      */
     public static double getMedian(double [] numberChain) {
 
-        double median;
-        int index;
         if (numberChain.length % 2 == 0) {
-            index = ((numberChain.length/2 - 1) + (numberChain.length/2)) / 2;
-            median = numberChain[index];
+            return (numberChain[(numberChain.length/2 - 1)] + numberChain[(numberChain.length/2)]) / 2;
         } else {
-            index = (((numberChain.length + 1) / 2) - 1);
-            median = numberChain[index];
+            return numberChain[(((numberChain.length + 1) / 2) - 1)];
         }
-
-        return median;
     }
 }
