@@ -464,6 +464,7 @@ public class Console {
 
         for(int i = 0; i < subMenus.length; i++){
             String name = subMenus[i].name;
+            int index = subMenus[i].index;
             int length = headerLength - (name.length() + 14);
             String chain = "";
 
@@ -471,7 +472,7 @@ public class Console {
                 chain += "─";
             }
 
-            writeLine("╠═─ "+i+" : "+name+" ⸗"+chain+"──═╣");
+            writeLine("╠═─ "+index+" : "+name+" ⸗"+chain+"──═╣");
         }
 
         String bottomFill = "";
