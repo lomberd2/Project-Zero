@@ -1,7 +1,7 @@
 package Main;
 
 public class Main {
-    public static boolean isDebug = false;
+    public static boolean isDebug = true;
 
 
     public static void main(String[] args){
