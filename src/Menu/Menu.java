@@ -582,7 +582,7 @@ public class Menu {
             SubMenu menu2 = new SubMenu(2, "Array[i][j] + Array[i][j]");
             SubMenu menu3 = new SubMenu(3, "Array[i][j] * Array[i][j]");
 
-            console.createSubMenu("Matrix Calculation", new SubMenu[]{menu1, menu2, menu3});
+            console.createSubMenu("Matrix Calculations", new SubMenu[]{menu1, menu2, menu3});
 
             int choice = console.readChoice(new int[]{0,1,2,3});
             matrixCalc(choice);

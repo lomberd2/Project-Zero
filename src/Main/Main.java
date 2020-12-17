@@ -1,16 +1,17 @@
 package Main;
 
 public class Main {
-    public static boolean isDebug = true;
+    public static boolean isDebug = false;
 
 
     public static void main(String[] args){
         System.out.println("Herzlich Willkommen im Wunderhaus von Andrej, Jan und Joey!");
         loadMenu();
+        System.out.println("\n\n\n\nSee you again!");
     }
 
     /**
-     * Lädt das Menu (Ist nur hier wegen dem Catch sieht sonst doof aus in der Main
+     * Loads the main menu
      */
     private static void loadMenu(){
         try {

@@ -374,10 +374,7 @@ public class Console {
      * @param input Arr to save
      */
     public void saveCurrentArray(double[] input){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, name));
     }
 
@@ -387,10 +384,7 @@ public class Console {
      * @param description description
      */
     public void saveCurrentArray(double[] input, String description){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, name, description));
     }
 
@@ -400,10 +394,7 @@ public class Console {
      * @param input2 input2
      */
     public void saveCurrentArray(double[] input, double[] input2){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, input2, name));
     }
 
@@ -413,10 +404,7 @@ public class Console {
      * @param result input2
      */
     public void saveCurrentArray(double[] input, double result){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, result, name));
     }
 
@@ -427,10 +415,7 @@ public class Console {
      * @param description description
      */
     public void saveCurrentArray(double[] input, double[] input2, String description){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, input2, name, description));
     }
 
@@ -441,10 +426,7 @@ public class Console {
      * @param description description
      */
     public void saveCurrentArray(double[] input, double result, String description){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, result, name, description));
     }
 
@@ -455,10 +437,7 @@ public class Console {
      * @param result result
      */
     public void saveCurrentArray(double[] input, double[] input2, double result){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, input2, result, name));
     }
 
@@ -470,10 +449,7 @@ public class Console {
      * @param description description
      */
     public void saveCurrentArray(double[] input, double[] input2, double result, String description){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, input2, result, name, description));
     }
 
@@ -484,10 +460,7 @@ public class Console {
      * @param resultArr result Array
      */
     public void saveCurrentArray(double[] input, double[] input2, double[] resultArr){
-        writeInfo("Please enter a name for your array!");
-        write("Name: ");
-        String name  = IO.readAnything();
-
+        String name = getArrayName();
         savedArrays.add(new SavedArray(input, input2, resultArr, name));
     }
 
@@ -499,11 +472,18 @@ public class Console {
      * @param description description
      */
     public void saveCurrentArray(double[] input, double[] input2, double[] resultArr, String description){
+        String name = getArrayName();
+        savedArrays.add(new SavedArray(input, input2, resultArr, name, description));
+    }
+
+    /**
+     * Reads the name of the array
+     * @return Array name
+     */
+    private String getArrayName(){
         writeInfo("Please enter a name for your array!");
         write("Name: ");
-        String name  = IO.readAnything();
-
-        savedArrays.add(new SavedArray(input, input2, resultArr, name, description));
+        return IO.readAnything();
     }
     //</editor-fold>
 
@@ -606,36 +586,146 @@ public class Console {
 
 
             int choice = readChoice(new int[]{0,1,2,3,4,5,6});
-            switch (choice){
-                case 0 ->{
-                    lastIndex = currentIndex;
+            int[] returnValues = getChoiceForArrays(choice, lastIndex, currentIndex, range, savedArrSize, selectedItems, false);
 
-                    if(lastIndex < 6){
-                        writeInfo("Exiting to main menu");
-                        return;
+            lastIndex = returnValues[0];
+
+            int exitLoop = returnValues[1];
+            if(exitLoop == 1){
+                return;
+            }
+        }
+    }
+
+    private int[] getChoiceForArrays(int choice, int lastIndex, int currentIndex, int range, int savedArrSize, int[] selectedItems, boolean getValuesForEquation){
+        int[] returnValues = new int[3];
+        switch (choice){
+            case 0 ->{
+                lastIndex = currentIndex;
+
+                if(lastIndex < 6 && !getValuesForEquation){
+                    writeInfo("Exiting to main menu");
+                    returnValues[1] = 1;
+                }else{
+                    if(range < 5){
+                        lastIndex += -range -5;
                     }else{
-                        if(range < 5){
-                            lastIndex += -range -5;
-                        }else{
-                            writeInfo("Page back", 100);
-                            lastIndex += (-5 * 2);
-                        }
+                        writeInfo("Page back", 100);
+                        lastIndex += (-5 * 2);
                     }
                 }
-                case 6 ->{
-                    lastIndex = currentIndex;
+            }
+            case 6 ->{
+                lastIndex = currentIndex;
 
-                    if(lastIndex >= savedArrSize){
-                        lastIndex += -5;
-                    }else {
-                        writeInfo("Next page", 100);
-                    }
+                if(lastIndex < 5){
+                    lastIndex += -range;
                 }
-                case 1,2,3,4,5 ->{
+                if(range < 5){
+                    lastIndex += -range -5;
+                }
+
+                if(lastIndex >= savedArrSize){
+                    lastIndex += -5;
+                }else {
+                    writeInfo("Next page", 100);
+                }
+            }
+            case 1,2,3,4,5 ->{
+                if(getValuesForEquation){
+                    returnValues[2] = selectedItems[choice - 1];
+                    returnValues[1] = 1;
+                }else {
                     printSpecificArray(selectedItems[choice - 1]);
                 }
             }
         }
+        returnValues[0] = lastIndex;
+        return returnValues;
+    }
+
+    public double[] getArrayForEquation() {
+        int savedArrSize = countSavedArrays();
+
+        if(savedArrSize == 0){
+            writeInfo("No saved arrays here. Sorry. Write something first.");
+            return readInput();
+        }
+
+        int menuSize = 5, lastIndex = 0, currentIndex = 0;
+        int i;
+
+        while(true){
+            ArrayList<SubMenu> subMenus = new ArrayList();
+            boolean isRun = true;
+
+            i = 0;
+            while (isRun){
+                int is = lastIndex + i;
+                subMenus.add(new SubMenu(i + 1, getArrName(is)));
+
+                i++;
+                is++;
+                writeLine("is: ["+is+"] savedArrSize: [" + savedArrSize + "] Last Index: [" + lastIndex + "]");
+                if(is > savedArrSize - 1){
+                    currentIndex = is;
+                    isRun = false;
+                }
+                if(i > (menuSize - 1)){
+                    currentIndex = is;
+                    isRun = false;
+                }
+            }
+
+            SubMenu[] finalSubmenu = new SubMenu[subMenus.size()];
+            for(int index = 0; index < subMenus.size(); index++){
+                finalSubmenu[index] = subMenus.get(index);
+            }
+
+            if(lastIndex < 5){
+                createSubMenu("Saved Arrays", finalSubmenu, 0);
+            }else if(currentIndex >= savedArrSize){
+                createSubMenu("Saved Arrays", finalSubmenu, 1);
+            }
+            else{
+                createSubMenu("Saved Arrays", finalSubmenu, 2);
+            }
+
+            int range = Math.max(lastIndex, currentIndex) - Math.min(lastIndex, currentIndex);
+            int[] selectedItems = new int[range];
+            for(int s = 0; s < selectedItems.length; s++){
+                selectedItems[s] = (currentIndex - range) + s;
+            }
+
+
+            int choice = readChoice(new int[]{0,1,2,3,4,5,6});
+            int[] returnValues = getChoiceForArrays(choice, lastIndex, currentIndex, range, savedArrSize, selectedItems, true);
+
+            lastIndex = returnValues[0];
+
+            int exitLoop = returnValues[1];
+            if(exitLoop == 1){
+                return getArray(returnValues[2]);
+            }
+        }
+    }
+
+    private double[] getArray(int i){
+        SavedArray arr = getSpecificArray(i);
+        if(arr.resultArray.length != 0){
+            return arr.resultArray;
+        }
+
+        if(arr.input2.length != 0){
+            writeLine("Do you want to use your first(1) or second(2) input?");
+            if(readChoice(new int[]{1,2}) == 1){
+                return arr.input;
+            }else{
+                return arr.input;
+            }
+        }
+
+        return arr.input;
     }
 
     public void printSpecificArray(int i){
@@ -724,7 +814,7 @@ public class Console {
         writeInfo("Do you want to save the result to your list? (Y/N)");
         switch (readChoice(new String[]{"y","n"})){
             case "y" -> {
-                saveCurrentArray(arr);
+                saveCurrentArray(arr, results);
                 return;
             }
             case "n" -> {
@@ -740,7 +830,7 @@ public class Console {
         writeInfo("Do you want to save the result to your list? (Y/N)");
         switch (readChoice(new String[]{"y","n"})){
             case "y" -> {
-                saveCurrentArray(arr);
+                saveCurrentArray(arr, results, description);
                 return;
             }
             case "n" -> {
@@ -910,8 +1000,7 @@ public class Console {
         writeInfo("Do you want to use one of your saved arrays? (Y/N)");
         String choice = readChoice(new String[]{"n", "y"});
         if(choice.contains("y")){
-            writeError("Function not implemented yet.");
-            return readInput();
+            return getArrayForEquation();
         }
         if(choice.contains("n")){
             return readInput();
