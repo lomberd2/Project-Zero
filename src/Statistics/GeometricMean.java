@@ -1,7 +1,5 @@
 package Statistics;
 
-import oop.IO;
-
 public class GeometricMean {
 
 	/**
