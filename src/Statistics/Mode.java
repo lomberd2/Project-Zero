@@ -4,11 +4,12 @@ public class Mode {
 
     /**
      * Takes the array modeChain to calculate the mode
+     *
      * @param modeChain Array
      * @return Mode
      */
     public static double getMode(double[] modeChain) {
-        
+
         double mode = 0;
 
         for (int j = 0; j < modeChain.length + 1; j++) {

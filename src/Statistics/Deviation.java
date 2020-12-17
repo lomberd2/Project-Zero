@@ -1,7 +1,5 @@
 package Statistics;
 
-import java.util.Arrays;
-
 public class Deviation {
     /*
      * Get the average of the numbers to calculate the Variance
@@ -33,12 +31,13 @@ public class Deviation {
 
     /**
      * Takes the Array numberChain to get the MaxDeviation
+     *
      * @param numberChain Array
      * @return max
      */
-    public static double getMaxDeviation(double [] numberChain){
+    public static double getMaxDeviation(double[] numberChain) {
 
-        double [] deviation = new double[numberChain.length - 1];
+        double[] deviation = new double[numberChain.length - 1];
 
 
         for (int j = 0; j < numberChain.length + 1; j++) {
@@ -51,14 +50,14 @@ public class Deviation {
             }
         }
 
-        for (int i = 0; i < deviation.length; i++){
+        for (int i = 0; i < deviation.length; i++) {
             deviation[i] = numberChain[i + 1] - numberChain[i];
         }
 
         double max = deviation[0];
 
-        for (int i = 1; i < deviation.length; i++){
-            if (deviation[i] > max){
+        for (int i = 1; i < deviation.length; i++) {
+            if (deviation[i] > max) {
                 max = deviation[i];
             }
         }
@@ -68,12 +67,13 @@ public class Deviation {
 
     /**
      * Takes the Array numberChain to get the MinDeviation
+     *
      * @param numberChain Array
      * @return min
      */
-    public static double getMinDeviation(double [] numberChain){
+    public static double getMinDeviation(double[] numberChain) {
 
-        double [] deviation = new double[numberChain.length - 1];
+        double[] deviation = new double[numberChain.length - 1];
 
 
         for (int j = 0; j < numberChain.length + 1; j++) {
@@ -86,14 +86,14 @@ public class Deviation {
             }
         }
 
-        for (int i = 0; i < deviation.length; i++){
+        for (int i = 0; i < deviation.length; i++) {
             deviation[i] = numberChain[i + 1] - numberChain[i];
         }
 
         double min = deviation[0];
 
-        for (int i = 1; i < deviation.length; i++){
-            if (deviation[i] < min){
+        for (int i = 1; i < deviation.length; i++) {
+            if (deviation[i] < min) {
                 min = deviation[i];
             }
         }

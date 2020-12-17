@@ -1,12 +1,12 @@
 package Menu;
 
-import Statistics.*;
 import Math.*;
+import Statistics.*;
 
 public class Menu {
 
     //<editor-fold desc="Header">
-    public static Console console = new Console();
+    public static final Console console = new Console();
 
     /* Char Table #QuickLookUp
      * ### VERSION : START
@@ -18,10 +18,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Startup">
+
     /**
      * Prints the Logo and runs the Initialisation
      */
-    public static void start() throws Exception{
+    public static void start() throws Exception {
         //Program LOGO
         System.out.println("╔═════════════════════════════════════════════════════╗");
         System.out.println("╠  Loading Math Calculator EXTREME aka Project Zero   ╣");
@@ -41,12 +42,13 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Main Menu">
+
     /**
      * Main Methode for the Menu
      */
-    private static void mainMenu(){
+    private static void mainMenu() {
         console.loadingEmulator("Main Menu", 3000);
-        while(true){
+        while (true) {
             //Main Menu Print
             console.clear();
             console.writeLine("╔═════════════════════════════════════════════════════╗");
@@ -61,7 +63,7 @@ public class Menu {
             console.writeLine("╚═════════════════════════════════════════════════════╝");
 
             //Selection
-            switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
+            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})) {
                 case 1 -> functionsMenu();
                 case 2 -> console.printAllSavedArrays();
                 default -> console.writeInfo("Function not implemented yet");
@@ -74,11 +76,12 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Functions Menu">
+
     /**
      * The menu that contains the functions
      */
-    private static void functionsMenu(){
-        while(true){
+    private static void functionsMenu() {
+        while (true) {
             //Main Menu Print
             console.clear();
             console.writeLine("╔═════════════════════════════════════════════════════╗");
@@ -92,7 +95,7 @@ public class Menu {
             console.writeLine("╚═════════════════════════════════════════════════════╝");
 
             //Selection
-            switch (console.readChoice(new int[]{0,1,2,3,4,5})){
+            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5})) {
                 case 1 -> statistic();
                 case 2 -> growthAndDecaySelected();
                 case 3 -> quadraticEquationSelected();
@@ -109,10 +112,11 @@ public class Menu {
     //<editor-fold desc="Statistics Stuff">
 
     //<editor-fold desc="Statistics Startup">
+
     /**
      * Loading main menu for statistics stuff. Includes the loop and logic for the menu.
      */
-    private static void statistic(){
+    private static void statistic() {
         //Emulate Loading
         console.loadingEmulator("Statistics", 3000);
         printStatisticsMenu();
@@ -122,11 +126,12 @@ public class Menu {
     //<editor-fold desc="Statistics Menus">
 
     //<editor-fold desc="First Menu">
+
     /**
      * Handles the First Page of the Statistics menu
      */
-    private static void printStatisticsMenu(){
-        while (true){
+    private static void printStatisticsMenu() {
+        while (true) {
             console.clear();
             console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
             console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
@@ -139,7 +144,7 @@ public class Menu {
             console.writeLine("╠═─ 0 : Exit ──────────────────────────────────────────────────────═╣");
             console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
 
-            switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
+            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})) {
                 case 0 -> {
                     console.writeInfo("Returning to Main menu");
                     return;
@@ -171,11 +176,12 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Second Menu">
+
     /**
      * Handles the second page from the statistics menu
      */
-    private static void printStatisticsMenuPage2(){
-        while(true){
+    private static void printStatisticsMenuPage2() {
+        while (true) {
             console.clear();
             console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
             console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
@@ -188,7 +194,7 @@ public class Menu {
             console.writeLine("╠═─ 0 : ←─Page─Back────────────────────────────────────────────────═╣");
             console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
 
-            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})){
+            switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})) {
                 case 1 -> {
                     console.writeInfo("Median Selected", 500);
                     medianSelected();
@@ -210,7 +216,7 @@ public class Menu {
                     console.writeInfo("Geometric Mean Selected", 500);
                     geometricMeanSelected();
                 }
-                case 0 ->{
+                case 0 -> {
                     return;
                 }
             }
@@ -223,10 +229,11 @@ public class Menu {
     //<editor-fold desc="First Page Functions">
 
     //<editor-fold desc="Minimum">
+
     /**
      * Contains the logic for min function
      */
-    private static void minStatsSelected(){
+    private static void minStatsSelected() {
         double[] input = console.getInput();
         double result = Statistics.Minimum.getMinimum(input);
         console.printResult("The lowest number is: " + result);
@@ -235,10 +242,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Maximum">
+
     /**
      * Contains the logic for max function
      */
-    private static void maxStatsSelected(){
+    private static void maxStatsSelected() {
         double[] input = console.getInput();
         double result = Statistics.Maximum.getMaximum(input);
         console.printResult("The highest number is: " + result);
@@ -247,10 +255,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Span">
+
     /**
      * When the span menu gets selected
      */
-    private static void spanMenuSelected(){
+    private static void spanMenuSelected() {
         double[] input = console.getInput();
         double result = Span.getSpan(input);
         console.printResult("The span is " + result);
@@ -259,10 +268,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Maximum Deviation">
+
     /**
      * User interaction methode for maximal deviation
      */
-    private static void maxDeviSelected(){
+    private static void maxDeviSelected() {
         double[] input = console.getInput();
         double result = Deviation.getMaxDeviation(input);
         console.printResult("The maximum Deviation is: " + result);
@@ -271,10 +281,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Minimum Deviation">
+
     /**
      * User interaction methode for minimal deviation
      */
-    private static void minDeviSelected(){
+    private static void minDeviSelected() {
         double[] input = console.getInput();
         double result = Deviation.getMinDeviation(input);
         console.printResult("Min. Deviation: " + result);
@@ -287,10 +298,11 @@ public class Menu {
     //<editor-fold desc="Second Page Functions">
 
     //<editor-fold desc="Median">
+
     /**
      * User interaction methode for median
      */
-    private static void medianSelected(){
+    private static void medianSelected() {
         double[] input = console.getInput("Data Array");
         double result = Median.getMedian(input);
         console.printResult("The median of the given data array is: " + result);
@@ -299,10 +311,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Mode">
+
     /**
      * User interaction methode for mode
      */
-    private static void modeSelected(){
+    private static void modeSelected() {
         double[] input = console.getInput("Data Array");
         double result = Mode.getMode(input);
         console.printResult("The mode of the given data array is: " + result);
@@ -311,10 +324,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Variant">
+
     /**
      * User interaction methode for variant
      */
-    private static void varianceSelected(){
+    private static void varianceSelected() {
         double[] input = console.getInput("Data");
         double result = Variance.getVariance(input);
         console.printResult("The variance is: " + result);
@@ -323,10 +337,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Standard Deviation">
+
     /**
      * User interaction methode for standard deviation
      */
-    private static void standardDeviationSelected(){
+    private static void standardDeviationSelected() {
         double[] input = console.getInput("Data");
         double result = StandardDeviation.getStandardDeviation(input);
         console.printResult("The standard deviation is: " + result);
@@ -335,10 +350,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Arithmetic Mean">
+
     /**
      * User interaction methode for arithmetic mean
      */
-    private static void arithmeticMeanSelected(){
+    private static void arithmeticMeanSelected() {
         console.writeLine("Arithmetic Mean");
         double[] input = console.getInput("Data Array");
         double result = ArithmeticMean.getArithmeticMean(input);
@@ -348,10 +364,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Geometric Mean">
+
     /**
      * User interaction methode for geometric mean
      */
-    private static void geometricMeanSelected(){
+    private static void geometricMeanSelected() {
         /*console.clear();
         console.writeLine("╔═⸗═══──{ Geometric Mean }──════╗");
         console.writeLine("╠═─ 1 : Relative ⸗─────────────═╣");
@@ -359,23 +376,24 @@ public class Menu {
         console.writeLine("╠═─ 0 : ←─Page⸗Back────────────═╣");
         console.writeLine("╚══════════════════════════⸗════╝");*/
 
-        SubMenu sub = new SubMenu(1,"Unbalanced");
+        SubMenu sub = new SubMenu(1, "Unbalanced");
         SubMenu sub2 = new SubMenu(2, "Balanced with 'Relative' given");
         SubMenu sub3 = new SubMenu(3, "Balanced with 'Absolute' given");
         console.createSubMenu("Geometric Mean", new SubMenu[]{sub, sub2, sub3});
 
-        switch (console.readChoice(new int[]{0,1,2,3})){
+        switch (console.readChoice(new int[]{0, 1, 2, 3})) {
             case 1 -> geoMeanSelected();
             case 2 -> geoMeanRelSelected();
             case 3 -> geoMeanAbsSelected();
-            case 0 -> {}
+            case 0 -> {
+            }
         }
     }
 
     /**
      * User interaction for geometric mean
      */
-    private static void geoMeanSelected(){
+    private static void geoMeanSelected() {
         double[] input = console.getInput("Data");
         double result = GeometricMean.getGeometricMean(input);
         console.printResult("" + result);
@@ -385,7 +403,7 @@ public class Menu {
     /**
      * User interaction for geometric mean with relative frequency given
      */
-    private static void geoMeanRelSelected(){
+    private static void geoMeanRelSelected() {
         double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the relative frequency now: ");
         double result = GeometricMean.getGeometricMeanRel(input);
         console.printResult("" + result);
@@ -396,7 +414,7 @@ public class Menu {
     /**
      * User interaction for geometric mean with absolute frequency given
      */
-    private static void geoMeanAbsSelected(){
+    private static void geoMeanAbsSelected() {
         double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the absolute frequency now: ");
         console.printResult("" + GeometricMean.getGeometricMeanAbs(input));
         console.writeWithTag("\n\nPress enter to continue");
@@ -411,28 +429,31 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Growth and Decay">
+
     /**
      * Handling the selection
      */
-    private static void growthAndDecaySelected(){
+    private static void growthAndDecaySelected() {
         console.clear();
         console.writeLine("╔═══──{ Growth and Decay }──═══╗");
         console.writeLine("╠═─ 1 : Growth ←──────────────═╣");
         console.writeLine("╠═─ 2 : Decay ←───────────────═╣");
         console.writeLine("╠═─ 0 : ←─Back────────────────═╣");
         console.writeLine("╚══════════════════════════════╝");
-        switch (console.readChoice(new int[]{0,1,2})){
+        switch (console.readChoice(new int[]{0, 1, 2})) {
             case 1 -> growth();
             case 2 -> decay();
-            case 0 -> {}
+            case 0 -> {
+            }
         }
     }
 
     //<editor-fold desc="Growth">
+
     /**
      * Handles the growth calculation
      */
-    private static void growth(){
+    private static void growth() {
         console.clear();
 
         console.writeLine("-Growth-\n");
@@ -447,7 +468,7 @@ public class Menu {
         double factor = console.readDouble();
         console.write("\n");
 
-        console.printResult("The end result after "+ duration+ " days is " + Growth.getGrowth(startValue, duration, factor) );
+        console.printResult("The end result after " + duration + " days is " + Growth.getGrowth(startValue, duration, factor));
 
         console.writeWithTag("\n\nPress enter to continue");
         IO.readAnything();
@@ -455,10 +476,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Decay">
+
     /**
      * Handles the decay calculation
      */
-    private static void decay(){
+    private static void decay() {
         console.clear();
 
         console.writeLine("-Decay-\n");
@@ -473,7 +495,7 @@ public class Menu {
         double factor = console.readDouble();
         console.write("\n");
 
-        console.printResult("The end result after "+ duration+ " days is " + Decay.getDecay(startValue, duration, factor) );
+        console.printResult("The end result after " + duration + " days is " + Decay.getDecay(startValue, duration, factor));
 
         console.writeWithTag("\n\nPress enter to continue");
         IO.readAnything();
@@ -483,10 +505,11 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Quadratic Equation">
+
     /**
      * Handles user input for quadratic equation
      */
-    private static void quadraticEquationSelected(){
+    private static void quadraticEquationSelected() {
         console.writeInfo("Please enter value a from 'ax²'");
         console.write("\nvalue: ");
         double a = console.readDouble();
@@ -504,9 +527,9 @@ public class Menu {
         double x = console.readDouble();
 
         console.writeLine("Zero Points Result : ", Colors.GREEN_BACKGROUND);
-        console.printResult(QuadraticEquation.getSquareFunctionZeroPoint(a,b,c));
+        console.printResult(QuadraticEquation.getSquareFunctionZeroPoint(a, b, c));
 
-        if(x != 0) {
+        if (x != 0) {
             console.printResult("f(x) = " + QuadraticEquation.getSquareFunctionToY(a, b, c, x));
         }
 
@@ -516,25 +539,27 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Vector Calculation">
+
     /**
      * Handling user interaction with vector calc
      */
-    private static void vectorCalculationSelected(){
+    private static void vectorCalculationSelected() {
         SubMenu menu1 = new SubMenu(1, "Array[i] * x");
         SubMenu menu2 = new SubMenu(2, "Array[i] + Array[i]");
         SubMenu menu3 = new SubMenu(3, "Array[i] * Array[i]");
 
         console.createSubMenu("Vector Calculation", new SubMenu[]{menu1, menu2, menu3});
 
-        vec(console.readChoice(new int[]{0,1,2,3}));
+        vec(console.readChoice(new int[]{0, 1, 2, 3}));
     }
 
     /**
      * More stuff from above just in another class
+     *
      * @param choice selected choice
      */
-    private static void vec(int choice){
-        if(choice == 0){
+    private static void vec(int choice) {
+        if (choice == 0) {
             return;
         }
 
@@ -542,7 +567,7 @@ public class Menu {
         double[] arr = console.getInput("Array");
         console.pressEnterToContinue(arr);
 
-        if(choice == 1){
+        if (choice == 1) {
             console.writeInfo("Please enter now the amount by which to multiply: ");
             console.write("\nvalue: ");
 
@@ -552,7 +577,7 @@ public class Menu {
             console.printResult(result);
             console.pressEnterToContinue(arr, result, num, "Array multiplication with one Number");
         }
-        if(choice == 2){
+        if (choice == 2) {
             console.writeInfo("Please enter now the second Array.");
 
             double[] arr2 = console.readInput(arr.length);
@@ -561,7 +586,7 @@ public class Menu {
             console.printResult(result);
             console.pressEnterToContinue(arr, arr2, result, "Addition of two Arrays");
         }
-        if(choice == 3){
+        if (choice == 3) {
             console.writeInfo("Please enter now the second Array.");
 
             double[] arr2 = console.readInput(arr.length);
@@ -574,26 +599,28 @@ public class Menu {
     //</editor-fold>
 
     //<editor-fold desc="Matrix Calculation">
+
     /**
      * Handling user interaction with vector calc
      */
-    private static void matrixCalcSelected(){
-            SubMenu menu1 = new SubMenu(1, "Array[i][j] * x");
-            SubMenu menu2 = new SubMenu(2, "Array[i][j] + Array[i][j]");
-            SubMenu menu3 = new SubMenu(3, "Array[i][j] * Array[i][j]");
+    private static void matrixCalcSelected() {
+        SubMenu menu1 = new SubMenu(1, "Array[i][j] * x");
+        SubMenu menu2 = new SubMenu(2, "Array[i][j] + Array[i][j]");
+        SubMenu menu3 = new SubMenu(3, "Array[i][j] * Array[i][j]");
 
-            console.createSubMenu("Matrix Calculations", new SubMenu[]{menu1, menu2, menu3});
+        console.createSubMenu("Matrix Calculations", new SubMenu[]{menu1, menu2, menu3});
 
-            int choice = console.readChoice(new int[]{0,1,2,3});
-            matrixCalc(choice);
+        int choice = console.readChoice(new int[]{0, 1, 2, 3});
+        matrixCalc(choice);
     }
 
     /**
      * Matrix Calc stuff
+     *
      * @param choice selected choice
      */
-    private static void matrixCalc(int choice){
-        if(choice == 0){
+    private static void matrixCalc(int choice) {
+        if (choice == 0) {
             return;
         }
 
@@ -606,14 +633,14 @@ public class Menu {
         console.writeInfo("Enter now the first array");
         double[][] matrix1 = console.readDoubleInput(i, j);
 
-        if(choice == 1){
+        if (choice == 1) {
             console.writeWithTag("Enter the value to multiply with : ");
             double multi = console.readInt();
 
             console.printResult(MatrixCalculation.multiplicationWithOneNumber(matrix1, multi));
             console.writeWithTag("\n\nPress enter to continue");
             IO.readAnything();
-        }else {
+        } else {
             console.writeInfo("Enter now the second array");
             double[][] matrix2 = console.readDoubleInput(i, j);
 
