@@ -10,8 +10,8 @@ public class GeometricMean {
 	public static double getGeometricMean(double[] input){
 		double x = 1;
 
-		for(int i = 0; i < input.length; i++){
-			x = x * input[i];
+		for (double v : input) {
+			x = x * v;
 		}
 
 		return Math.pow(Math.E, Math.log(x) / input.length);
@@ -26,8 +26,8 @@ public class GeometricMean {
 	public static double getGeometricMean(double[] input, int abs){
 		double x = 1;
 
-		for(int i = 0; i < input.length; i++){
-			x = x * input[i];
+		for (double v : input) {
+			x = x * v;
 		}
 
 		return Math.pow(Math.E, Math.log(x) / abs);
@@ -61,9 +61,9 @@ public class GeometricMean {
 	public static double getGeometricMeanRel(double[][] input){
 		double temp = 1;
 
-		for(int i = 0; i < input.length; i++){
-			double val1 = input[i][0];
-			double val2 = input[i][1];
+		for (double[] doubles : input) {
+			double val1 = doubles[0];
+			double val2 = doubles[1];
 
 			temp = temp * Math.pow(val1, val2);
 		}
