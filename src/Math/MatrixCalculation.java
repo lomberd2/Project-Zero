@@ -10,13 +10,13 @@ public class MatrixCalculation {
      * @return returns multiplied matrix
      */
     public static int[][] multiplicationWithOneNumber(int[][] matrix, int number){
-        int[][] merkMatrix = new int[matrix.length][matrix[0].length];
+        int[][] tempMatrix = new int[matrix.length][matrix[0].length];
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[i].length; j++){
-                merkMatrix[i][j] = matrix[i][j] * number;
+                tempMatrix[i][j] = matrix[i][j] * number;
             }
         }
-        return merkMatrix;
+        return tempMatrix;
     }
 
     /**
@@ -26,13 +26,13 @@ public class MatrixCalculation {
      * @return returns multiplied matrix
      */
     public static double[][] multiplicationWithOneNumber(double[][] matrix, double number){
-        double[][] merkMatrix = new double[matrix.length][matrix[0].length];
+        double[][] tempMatrix = new double[matrix.length][matrix[0].length];
         for(int i = 0; i < matrix.length; i++){
             for(int j = 0; j < matrix[i].length; j++){
-                merkMatrix[i][j] = matrix[i][j] * number;
+                tempMatrix[i][j] = matrix[i][j] * number;
             }
         }
-        return merkMatrix;
+        return tempMatrix;
     }
     //</editor-fold>
 

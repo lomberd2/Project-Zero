@@ -4,15 +4,15 @@ package Statistics;
 public class ArithmeticMean {
 	/**
 	 * This method gets the arithmetic mean
-	 * @param zahlenreihe the array with the numbers in it
+	 * @param numberChain the array with the numbers in it
 	 * @return median
 	 */
-	public static double getArithmeticMean(double[] zahlenreihe) {
-		double summe = 0;
-		for (int i = 0; i < zahlenreihe.length; i++) {
-			summe += zahlenreihe[i];
+	public static double getArithmeticMean(double[] numberChain) {
+		double sum = 0;
+		for (int i = 0; i < numberChain.length; i++) {
+			sum += numberChain[i];
 		}
-		return summe / zahlenreihe.length;
+		return sum / numberChain.length;
 	}
 
 }
