@@ -3,42 +3,42 @@ package Statistics;
 public class Minimum {
     /**
      * Find out the Lowest number with int
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Lowest number
      */
-    public static int getMinimum(int zahl1, int zahl2){
-        return Math.min(zahl1,zahl2);
+    public static int getMinimum(int number1, int number2){
+        return Math.min(number1,number2);
     }
 
     /**
      * Find out the Lowest number with double
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Lowest number
      */
-    public static double getMinimum(double zahl1, double zahl2){
-        return Math.min(zahl1, zahl2);
+    public static double getMinimum(double number1, double number2){
+        return Math.min(number1, number2);
     }
 
     /**
      * Find out the Lowest number with long
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Lowest number
      */
-    public static long getMinimum(long zahl1, long zahl2){
-        return Math.min(zahl1, zahl2);
+    public static long getMinimum(long number1, long number2){
+        return Math.min(number1, number2);
     }
 
     /**
      * Find out the Lowest number with float
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Lowest number
      */
-    public static float getMinimum(float zahl1, float zahl2){
-        return Math.min(zahl1, zahl2);
+    public static float getMinimum(float number1, float number2){
+        return Math.min(number1, number2);
     }
 
     /**
