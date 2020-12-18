@@ -7,7 +7,7 @@ public class Decay {
 	 * @param startValue starting value
 	 * @param factor factor
 	 * @param duration duration
-	 * @return ergebnis[]
+	 * @return result[]
 	 */
 	public static double getDecay(double startValue, double duration, double factor) {
 		double result = 0;

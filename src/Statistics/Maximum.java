@@ -3,40 +3,40 @@ package Statistics;
 public class Maximum {
     /**
      * Find out the Highest number with int
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Highest number
      */
-    public static int getMaximum(int zahl1, int zahl2) {
-        return Math.max(zahl1,zahl2);
+    public static int getMaximum(int number1, int number2) {
+        return Math.max(number1,number2);
     }
 
     /**
      * Find out the Highest number with double
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Highest number
      */
-    public static double getMaximum(double zahl1, double zahl2){ return Math.max(zahl1, zahl2); }
+    public static double getMaximum(double number1, double number2){ return Math.max(number1, number2); }
 
     /**
      * Find out the Highest number with long
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Highest number
      */
-    public static long getMaximum(long zahl1, long zahl2){
-        return Math.max(zahl1, zahl2);
+    public static long getMaximum(long number1, long number2){
+        return Math.max(number1, number2);
     }
 
     /**
      * Find out the Highest number with float
-     * @param zahl1 Variable one
-     * @param zahl2 Variable two
+     * @param number1 Variable one
+     * @param number2 Variable two
      * @return Highest number
      */
-    public static float getMaximum(float zahl1, float zahl2){
-        return Math.max(zahl1, zahl2);
+    public static float getMaximum(float number1, float number2){
+        return Math.max(number1, number2);
     }
 
     /**

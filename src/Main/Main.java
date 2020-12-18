@@ -3,7 +3,10 @@ package Main;
 public class Main {
     public static boolean isDebug = false;
 
-
+    /**
+     * Main class
+     * @param args args
+     */
     public static void main(String[] args){
         System.out.println("Herzlich Willkommen im Wunderhaus von Andrej, Jan und Joey!");
         loadMenu();
@@ -11,7 +14,7 @@ public class Main {
     }
 
     /**
-     * Loads the main menu
+     * Loads the menu
      */
     private static void loadMenu(){
         try {

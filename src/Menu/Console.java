@@ -9,7 +9,7 @@ public class Console {
     //region Write
     /**
      * Modified Print
-     * @param input Consolen Input
+     * @param input Console Input
      */
     public void write(String input){
         System.out.print(input);
@@ -303,7 +303,7 @@ public class Console {
 
     //region Read Choice
     /**
-     * Reads an input from an user and makes im choose one of the pre definded words
+     * Reads an input from an user and makes im choose one of the pre defined words
      * @param choices choices
      * @return selectedChoice
      */

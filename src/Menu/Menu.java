@@ -389,8 +389,7 @@ public class Menu {
         double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the relative frequency now: ");
         double result = GeometricMean.getGeometricMeanRel(input);
         console.printResult("" + result);
-        console.writeWithTag("\n\nPress enter to continue");
-        IO.readAnything();
+        console.pressEnter();
     }
 
     /**
@@ -399,8 +398,7 @@ public class Menu {
     private static void geoMeanAbsSelected(){
         double[][] input = console.readDoubleInput("Please enter your data now: ", "Please enter the absolute frequency now: ");
         console.printResult("" + GeometricMean.getGeometricMeanAbs(input));
-        console.writeWithTag("\n\nPress enter to continue");
-        IO.readAnything();
+        console.pressEnter();
     }
 
     //</editor-fold>
@@ -449,8 +447,7 @@ public class Menu {
 
         console.printResult("The end result after "+ duration+ " days is " + Growth.getGrowth(startValue, duration, factor) );
 
-        console.writeWithTag("\n\nPress enter to continue");
-        IO.readAnything();
+        console.pressEnter();
     }
     //</editor-fold>
 
@@ -475,8 +472,7 @@ public class Menu {
 
         console.printResult("The end result after "+ duration+ " days is " + Decay.getDecay(startValue, duration, factor) );
 
-        console.writeWithTag("\n\nPress enter to continue");
-        IO.readAnything();
+        console.pressEnter();
     }
     //</editor-fold>
 
@@ -510,8 +506,7 @@ public class Menu {
             console.printResult("f(x) = " + QuadraticEquation.getSquareFunctionToY(a, b, c, x));
         }
 
-        console.writeWithTag("\n\nPress enter to continue");
-        IO.readAnything();
+        console.pressEnter();
     }
     //</editor-fold>
 
@@ -611,20 +606,17 @@ public class Menu {
             double multi = console.readInt();
 
             console.printResult(MatrixCalculation.multiplicationWithOneNumber(matrix1, multi));
-            console.writeWithTag("\n\nPress enter to continue");
-            IO.readAnything();
+            console.pressEnter();
         }else {
             console.writeInfo("Enter now the second array");
             double[][] matrix2 = console.readDoubleInput(i, j);
 
             if (choice == 2) {
                 console.printResult(MatrixCalculation.mergeMatrix(matrix1, matrix2));
-                console.writeWithTag("\n\nPress enter to continue");
-                IO.readAnything();
+                console.pressEnter();
             } else if (choice == 3) {
                 console.printResult(MatrixCalculation.multiTwoMatrix(matrix1, matrix2));
-                console.writeWithTag("\n\nPress enter to continue");
-                IO.readAnything();
+                console.pressEnter();
             }
         }
     }
