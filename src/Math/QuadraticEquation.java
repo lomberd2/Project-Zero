@@ -11,9 +11,7 @@ public class QuadraticEquation {
 	 * @return Y / f(x)
 	 */
 	public static double getSquareFunctionToY(double a, double b, double c, double x) {
-
-		double y = (((a * x) * (a * x)) + (b * x) + c);
-		return y;
+		return (((a * x) * (a * x)) + (b * x) + c);
 	}
 
 	/**
@@ -25,14 +23,14 @@ public class QuadraticEquation {
 	 */
 
 	public static double[] getSquareFunctionZeroPoint(double a, double b, double c) {
+		final double p = b / a;
+		final double q = c / a;
+		final double sqrt = Math.sqrt(((p / 2) * (p / 2)) - q);
 
-		double p = b / a;
-		double q = c / a;
+		final double x1 = -(p / 2) + sqrt;
+		final double x2 = -(p / 2) - sqrt;
 
-		double x1 = -(p / 2) + Math.sqrt(((p / 2) * (p / 2)) - q);
-		double x2 = -(p / 2) - Math.sqrt(((p / 2) * (p / 2)) - q);
-
-		double d = ((p / 2) * (p / 2) - q);
+		final double d = ((p / 2) * (p / 2) - q);
 
 		if (d == 0) {
 			double[] zeroPoint = new double[1];
@@ -44,6 +42,7 @@ public class QuadraticEquation {
 			zeroPoint[1] = x2;
 			return zeroPoint;
 		}
-		return new double[0];
+
+		return new double[]{0};
 	}
 }

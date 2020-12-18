@@ -9,8 +9,7 @@ public class Span {
      * @return Span from min and max.
      */
     public static int getSpan(int max, int min){
-        int span = max - min;
-        return span;
+        return max - min;
     }
     /**
      * Find out the span from two Variables with double
@@ -20,8 +19,7 @@ public class Span {
      */
 
     public static double getSpan(double max, double min){
-        double span = max - min;
-        return span;
+        return max - min;
     }
     /**
      * Find out the span from two Variables with long
@@ -30,8 +28,7 @@ public class Span {
      * @return Span from min and max.
      */
     public static long getSpan(long max, long min){
-        long span = max - min;
-        return span;
+        return max - min;
     }
     /**
      * Find out the span from two Variables with float
@@ -40,8 +37,7 @@ public class Span {
      * @return Span from min and max.
      */
     public static float getSpan(float max, float min){
-        float span = max - min;
-        return span;
+        return max - min;
     }
 
     /**

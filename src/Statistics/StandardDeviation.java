@@ -9,9 +9,6 @@ public class StandardDeviation {
      * @return StandardDeviation
      */
     public static double getStandardDeviation(double [] variance){
-
-        double standardDeviation = Math.sqrt(Variance.getVariance(variance));
-
-        return standardDeviation;
+        return Math.sqrt(Variance.getVariance(variance));
     }
 }

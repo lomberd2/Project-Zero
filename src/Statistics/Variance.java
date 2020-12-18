@@ -12,14 +12,14 @@ public class Variance {
         double sumArm = 0;
         double varianceValue;
 
-        for (int i = 0; i < variance.length; i++){
-            sumArm += variance[i];
+        for (double value : variance) {
+            sumArm += value;
         }
 
         sumArm = sumArm / variance.length;
 
-        for (int i = 0; i < variance.length; i++) {
-            sumVar += (variance[i] - sumArm) * (variance[i] - sumArm);
+        for (double v : variance) {
+            sumVar += (v - sumArm) * (v - sumArm);
         }
         varianceValue = sumVar / variance.length;
 
