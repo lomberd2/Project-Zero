@@ -141,6 +141,21 @@ public class Console {
     }
 
     /**
+     * Prints an array with a given tag name
+     * @param output array to print
+     * @param name tag name
+     */
+    public void printResult(double[] output, String name){
+        int i = 0;
+        write("\n" + Colors.GREEN_BACKGROUND + "[CalcEXTREME][RESULT]: " + "\n");
+        for(double value: output){
+            i++;
+            write("\t"+name+"["+i+"] : " + value + "\n");
+        }
+        write(Colors.RESET + "\n\n");
+    }
+
+    /**
      * Prints an matrix array as an result
      * @param output out
      */

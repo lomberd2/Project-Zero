@@ -446,7 +446,7 @@ public class Menu {
         console.write("\n");
 
         console.printResult("The end result after "+ duration+ " days is ");
-        console.printResult(Growth.getGrowth(startValue, duration, factor));
+        console.printResult(Growth.getGrowth(startValue, duration, factor), "Day");
 
         console.pressEnter();
     }
@@ -465,13 +465,14 @@ public class Menu {
         double startValue = console.readDouble();
 
         console.write("Please enter the duration in days: ");
-        double duration = console.readDouble();
+        int duration = console.readInt();
 
         console.write("Please enter the factor of decay: ");
         double factor = console.readDouble();
         console.write("\n");
 
-        console.printResult("The end result after "+ duration+ " days is " + Decay.getDecay(startValue, duration, factor) );
+        console.printResult("The end result after "+ duration+ " days is ");
+        console.printResult(Decay.getDecay(startValue, duration, factor), "Day");
 
         console.pressEnter();
     }
