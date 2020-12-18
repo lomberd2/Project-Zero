@@ -730,6 +730,7 @@ public class Console {
 
     private double[] getArray(int i){
         SavedArray arr = getSpecificArray(i);
+
         if(arr.resultArray.length != 0){
             return arr.resultArray;
         }
@@ -739,7 +740,7 @@ public class Console {
             if(readChoice(new int[]{1,2}) == 1){
                 return arr.input;
             }else{
-                return arr.input;
+                return arr.input2;
             }
         }
 

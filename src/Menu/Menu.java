@@ -48,7 +48,7 @@ public class Menu {
         console.loadingEmulator("Main Menu", 3000);
         while(true){
             //Main Menu Print
-            console.clear();
+            /*console.clear();
             console.writeLine("╔═════════════════════════════════════════════════════╗");
             console.writeLine("╠═──────────────────{  MAIN MENU  }──────────────────═╣");
             console.writeLine("╠═─ 1 : Functions (Stats,Matrix..) ──────────────────═╣");
@@ -58,7 +58,16 @@ public class Menu {
             console.writeLine("╠═─ 5 : Empty Function ──────────────────────────────═╣");
             console.writeLine("╠═─ 6 : Empty Function ──────────────────────────────═╣");
             console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
-            console.writeLine("╚═════════════════════════════════════════════════════╝");
+            console.writeLine("╚═════════════════════════════════════════════════════╝");*/
+
+            SubMenu[] subMenus = new SubMenu[5];
+            subMenus[0] = new SubMenu(1, "Functions (Stats,Matrix..)");
+            subMenus[1] = new SubMenu(2, "Saved Arrays");
+            subMenus[2] = new SubMenu(3, "Empty Function");
+            subMenus[3] = new SubMenu(4, "Empty Function");
+            subMenus[4] = new SubMenu(5, "Empty Function");
+
+            console.createSubMenu("MAIN MENU", subMenus, 1);
 
             //Selection
             switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
@@ -80,7 +89,7 @@ public class Menu {
     private static void functionsMenu(){
         while(true){
             //Main Menu Print
-            console.clear();
+            /*console.clear();
             console.writeLine("╔═════════════════════════════════════════════════════╗");
             console.writeLine("╠═──────────────────{  Functions  }──────────────────═╣");
             console.writeLine("╠═─ 1 : Statistics (Min, Max, Span, etc.) ───────────═╣");
@@ -89,7 +98,15 @@ public class Menu {
             console.writeLine("╠═─ 4 : Vector calculation ──────────────────────────═╣");
             console.writeLine("╠═─ 5 : Matrix calculation ──────────────────────────═╣");
             console.writeLine("╠═─ 0 : Exit ────────────────────────────────────────═╣");
-            console.writeLine("╚═════════════════════════════════════════════════════╝");
+            console.writeLine("╚═════════════════════════════════════════════════════╝");*/
+            SubMenu[] subMenus = new SubMenu[5];
+            subMenus[0] = new SubMenu(1, "Statistics (Min, Max, Span, etc.)");
+            subMenus[1] = new SubMenu(2, "Growth and decay");
+            subMenus[2] = new SubMenu(3, "Quadratic equation");
+            subMenus[3] = new SubMenu(4, "Vector calculation");
+            subMenus[4] = new SubMenu(5, "Matrix calculation");
+
+            console.createSubMenu("Functions", subMenus, 1);
 
             //Selection
             switch (console.readChoice(new int[]{0,1,2,3,4,5})){
@@ -127,7 +144,7 @@ public class Menu {
      */
     private static void printStatisticsMenu(){
         while (true){
-            console.clear();
+            /*console.clear();
             console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
             console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
             console.writeLine("╠═─ 1 : Minimum (Get the lowest number from two) ──────────────────═╣");
@@ -137,7 +154,16 @@ public class Menu {
             console.writeLine("╠═─ 5 : Minimal deviation of two neighboring measured values ──────═╣");
             console.writeLine("╠═─ 6 : Next Page ─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─→─═╣");
             console.writeLine("╠═─ 0 : Exit ──────────────────────────────────────────────────────═╣");
-            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
+            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");*/
+
+            SubMenu[] subMenus = new SubMenu[5];
+            subMenus[0] = new SubMenu(1, "Minimum (Get the lowest number from two)");
+            subMenus[1] = new SubMenu(2, "Maximum (Get the highest number from two)");
+            subMenus[2] = new SubMenu(3, "Span (Get the range between min and max)");
+            subMenus[3] = new SubMenu(4, "Maximum deviation of two neighboring measured values");
+            subMenus[4] = new SubMenu(5, "Minimal deviation of two neighboring measured values");
+
+            console.createSubMenu("Statistics - Page [1/2]", subMenus, 0);
 
             switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
                 case 0 -> {
@@ -176,7 +202,7 @@ public class Menu {
      */
     private static void printStatisticsMenuPage2(){
         while(true){
-            console.clear();
+            /*console.clear();
             console.writeLine("╔═══════════════════════════════════════════════════════════════════╗");
             console.writeLine("╠═────────────────────────{  Statistics  }─────────────────────────═╣");
             console.writeLine("╠═─ 1 : Median ────────────────────────────────────────────────────═╣");
@@ -186,7 +212,17 @@ public class Menu {
             console.writeLine("╠═─ 5 : Arithmetic mean ───────────────────────────────────────────═╣");
             console.writeLine("╠═─ 6 : Geometric mean ────────────────────────────────────────────═╣");
             console.writeLine("╠═─ 0 : ←─Page─Back────────────────────────────────────────────────═╣");
-            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");
+            console.writeLine("╚═══════════════════════════════════════════════════════════════════╝");*/
+            SubMenu[] subMenus = new SubMenu[6];
+            subMenus[0] = new SubMenu(1, "Median");
+            subMenus[1] = new SubMenu(2, "Mode Value");
+            subMenus[2] = new SubMenu(3, "Variance");
+            subMenus[3] = new SubMenu(4, "Standard Deviation");
+            subMenus[4] = new SubMenu(5, "Arithmetic mean");
+            subMenus[5] = new SubMenu(6, "Geometric mean");
+
+            console.createSubMenu("Statistics - Page [2/2]", subMenus, 1);
+
 
             switch (console.readChoice(new int[]{0, 1, 2, 3, 4, 5, 6})){
                 case 1 -> {
