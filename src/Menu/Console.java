@@ -288,6 +288,11 @@ public class Console {
         return out;
     }
 
+    /**
+     * Reads an input with a given size
+     * @param size input size
+     * @return input[]
+     */
     public double[] readInput(int size){
         double[] temp = new double[size];
         clear();
