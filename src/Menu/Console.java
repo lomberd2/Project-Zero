@@ -1170,7 +1170,10 @@ public class Console {
             writeLine("╠═─ 0 : ←─Exit⸗─" + bottomFill2 + "─═╣");
         } else if(caseNum == 1) {
             writeLine("╠═─ 0 : ←─Back⸗─" + bottomFill2 + "─═╣");
-        }else{
+        }else if(caseNum == 2){
+            writeLine("╠═─ 0 : ←─Exit⸗─" + bottomFill2 + "─═╣");
+        }
+        else{
             writeLine("╠═─ 6 : ─→Next⸗─" + bottomFill2 + "─═╣");
             writeLine("╠═─ 0 : ←─Back⸗─" + bottomFill2 + "─═╣");
         }

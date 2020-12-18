@@ -67,7 +67,7 @@ public class Menu {
             subMenus[3] = new SubMenu(4, "Empty Function");
             subMenus[4] = new SubMenu(5, "Empty Function");
 
-            console.createSubMenu("MAIN MENU", subMenus, 1);
+            console.createSubMenu("MAIN MENU", subMenus, 2);
 
             //Selection
             switch (console.readChoice(new int[]{0,1,2,3,4,5,6})){
