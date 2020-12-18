@@ -798,8 +798,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> saveCurrentArray(arr);
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr);
         }
     }
 
@@ -808,14 +808,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, String description){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, description);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, description);
         }
     }
 
@@ -824,10 +818,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double results){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, results);
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, results);
         }
     }
 
@@ -836,14 +828,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double results, String description){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, results, description);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, results, description);
         }
     }
 
@@ -852,18 +838,12 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                writeInfo("Saving first array: ");
-                saveCurrentArray(arr);
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            writeInfo("Saving first array: ");
+            saveCurrentArray(arr);
 
-                writeInfo("Saving second array: ");
-                saveCurrentArray(arr2);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+            writeInfo("Saving second array: ");
+            saveCurrentArray(arr2);
         }
     }
 
@@ -872,14 +852,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2, String description){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, arr2, description);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, arr2, description);
         }
     }
 
@@ -888,14 +862,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2, double[] resultArr){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, arr2, resultArr);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, arr2, resultArr);
         }
     }
 
@@ -904,14 +872,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2, double[] resultArr, String description){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, arr2, resultArr, description);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, arr2, resultArr, description);
         }
     }
 
@@ -920,14 +882,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2, double result){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, arr2, result);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, arr2, result);
         }
     }
 
@@ -936,14 +892,8 @@ public class Console {
      */
     public void pressEnterToContinue(double[] arr, double[] arr2, double result, String description){
         writeInfo("Do you want to save the result to your list? (Y/N)");
-        switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr, arr2, result, description);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+        if ("y".equals(readChoice(new String[]{"y", "n"}))) {
+            saveCurrentArray(arr, arr2, result, description);
         }
     }
     //</editor-fold>
@@ -995,7 +945,9 @@ public class Console {
             //1/4 loadingTime
             Thread.sleep(loadingTimeDiv);
             write("\n");
-        }catch (Exception e){}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     //</editor-fold>
 
