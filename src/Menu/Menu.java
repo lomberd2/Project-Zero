@@ -22,20 +22,7 @@ public class Menu {
      * Prints the Logo and runs the Initialisation
      */
     public static void start() throws Exception{
-        //Program LOGO
-        System.out.println("╔═════════════════════════════════════════════════════╗");
-        System.out.println("╠  Loading Math Calculator EXTREME aka Project Zero   ╣");
-        System.out.println("╠    ░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓    ╣");
-        System.out.println("╠ ░▒▓░▒▓░░░░▒▓░▒▓░▒▓░▒░░░░░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓ ╣");
-        System.out.println("╠    ░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░░░░░░░▒▓░▒▓░▒▓░▒▓    ╣");
-        System.out.println("╠    ░▒▓░░░░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓    ╣");
-        System.out.println("╠    ░▒▓░▒▓░▒▓░▒▓░▒▓░░░░░░░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓    ╣");
-        System.out.println("╠    ░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓░▒▓    ╣");
-        System.out.println("╠     Created by XimBaumY, JanderLP and lomberd2      ╣");
-        System.out.println("╚═════════════════════════════════════════════════════╝");
         Thread.sleep(500);
-
-        //Loading main menu
         mainMenu();
     }
     //</editor-fold>
