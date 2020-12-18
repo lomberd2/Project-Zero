@@ -49,7 +49,7 @@ public class Minimum {
     public static double getMinimum(double[] numbers){
         double min = numbers[0];
         for(int i = 1; i < numbers.length; i++){
-            min = Math.min(numbers[i - 1], numbers[i]);
+            min = Math.min(min, numbers[i]);
         }
         return min;
     }

@@ -47,7 +47,7 @@ public class Maximum {
     public static double getMaximum(double[] numbers){
         double max = numbers[0];
         for(int i = 1; i < numbers.length; i++){
-            max = Math.max(numbers[i-1], numbers[i]);
+            max = Math.max(max, numbers[i]);
         }
         return max;
     }
