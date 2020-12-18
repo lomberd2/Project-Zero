@@ -8,10 +8,10 @@ public class Growth {
 	 * @param factor the potency
 	 * @return result
 	 */
-	public static double getGrowth(double startValue, double duration, double factor) {
-		double result = 0;
-		for (int i = 0; i <= duration; i++) {
-			result = startValue * Math.pow(factor, i);
+	public static double[] getGrowth(double startValue, int duration, double factor) {
+		double[] result = new double[duration];
+		for (int i = 0; i <= result.length; i++) {
+			result[i] = startValue * Math.pow(factor, i);
 			
 		}
 		return result;

@@ -439,13 +439,14 @@ public class Menu {
         double startValue = console.readDouble();
 
         console.write("Please enter the duration in days: ");
-        double duration = console.readDouble();
+        int duration = console.readInt();
 
         console.write("Please enter the factor of growth: ");
         double factor = console.readDouble();
         console.write("\n");
 
-        console.printResult("The end result after "+ duration+ " days is " + Growth.getGrowth(startValue, duration, factor) );
+        console.printResult("The end result after "+ duration+ " days is ");
+        console.printResult(Growth.getGrowth(startValue, duration, factor));
 
         console.pressEnter();
     }
