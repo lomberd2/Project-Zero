@@ -6,8 +6,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class IO {
-    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static Console console = new Console();
+    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final Console console = new Console();
 
     /**
      * Reads the input from the user and returns the given Integer
@@ -46,8 +46,7 @@ public class IO {
         while (true) {
             try {
                 String input = readAnything();
-                double out = Double.parseDouble(input.toLowerCase().trim().replace(",", "."));
-                return out;
+                return Double.parseDouble(input.toLowerCase().trim().replace(",", "."));
             } catch (Exception e) {
                 if (Main.isDebug) {
                     e.printStackTrace();

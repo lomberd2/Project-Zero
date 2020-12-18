@@ -43,6 +43,6 @@ public class QuadraticEquation {
 			return zeroPoint;
 		}
 
-		return new double[]{0};
+		return new double[0];
 	}
 }
