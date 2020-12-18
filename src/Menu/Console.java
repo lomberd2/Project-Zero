@@ -799,13 +799,7 @@ public class Console {
     public void pressEnterToContinue(double[] arr){
         writeInfo("Do you want to save the result to your list? (Y/N)");
         switch (readChoice(new String[]{"y","n"})){
-            case "y" -> {
-                saveCurrentArray(arr);
-                return;
-            }
-            case "n" -> {
-                return;
-            }
+            case "y" -> saveCurrentArray(arr);
         }
     }
 
@@ -833,10 +827,6 @@ public class Console {
         switch (readChoice(new String[]{"y","n"})){
             case "y" -> {
                 saveCurrentArray(arr, results);
-                return;
-            }
-            case "n" -> {
-                return;
             }
         }
     }

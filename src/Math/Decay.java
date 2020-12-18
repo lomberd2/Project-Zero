@@ -12,7 +12,7 @@ public class Decay {
 	public static double[] getDecay(double startValue, int duration, double factor) {
 		double[] result = new double[duration];
 		factor = 1 - (factor/100);
-		for (int i = 0; i <= result.length; i++) {
+		for (int i = 0; i < result.length; i++) {
 			result[i] = startValue * Math.pow(factor, i);
 		}
 		return result;

@@ -10,7 +10,7 @@ public class Growth {
 	 */
 	public static double[] getGrowth(double startValue, int duration, double factor) {
 		double[] result = new double[duration];
-		for (int i = 0; i <= result.length; i++) {
+		for (int i = 0; i < result.length; i++) {
 			result[i] = startValue * Math.pow(factor, i);
 			
 		}
