@@ -292,12 +292,10 @@ public class Console {
         double[] temp = new double[size];
         clear();
         writeInfo("Please enter the values for an array with the size of " + size);
-        for(int i = 0; i < size; i++){
-            i++;
+        for(int i = 0; i < temp.length; i++){
             write("[INPUT] Number ["+i+"]: ");
             temp[i] = readDouble();
         }
-
         return temp;
     }
 
