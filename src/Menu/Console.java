@@ -546,7 +546,7 @@ public class Console {
         int i;
 
         while(true){
-            ArrayList<SubMenu> subMenus = new ArrayList();
+            ArrayList<SubMenu> subMenus = new ArrayList<>();
             boolean isRun = true;
 
             i = 0;
@@ -659,7 +659,7 @@ public class Console {
         int i;
 
         while(true){
-            ArrayList<SubMenu> subMenus = new ArrayList();
+            ArrayList<SubMenu> subMenus = new ArrayList<>();
             boolean isRun = true;
 
             i = 0;
