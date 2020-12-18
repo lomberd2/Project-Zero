@@ -48,12 +48,9 @@ public class Minimum {
      */
     public static double getMinimum(double[] numbers){
         double min = numbers[0];
-        for(int i = 0; i < numbers.length; i++){
-            if(numbers[i] < min){
-                min = numbers[i];
-            }
+        for(int i = 1; i < numbers.length; i++){
+            min = Math.min(numbers[i - 1], numbers[i]);
         }
-
         return min;
     }
 }
