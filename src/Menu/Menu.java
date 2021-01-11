@@ -554,7 +554,7 @@ public class Menu {
      * @param choice selected choice
      */
     private static void vec(int choice){
-        if(choice == 0){
+        if(choice == 0) {
             return;
         }
 
@@ -582,13 +582,25 @@ public class Menu {
             console.pressEnterToContinue(arr, arr2, result, "Addition of two Arrays");
         }
         if(choice == 3){
-            console.writeInfo("Please enter now the second Array.");
+            console.writeInfo("Do you want to multiply more than one vector? (Y/N)");
+            if(console.readChoice(new String[]{"y","n"}).contains("n")){
+                //No
+                double[] arr2 = console.readInput(arr.length);
+                double result = VectorCalculation.getMultiplicationTwoVectors(arr, arr2);
 
-            double[] arr2 = console.readInput(arr.length);
-            double[] result = VectorCalculation.getMultiplicationTwoVectors(arr, arr2);
+                console.printResult(String.valueOf(result));
+            }else{
+                //Yes
+                console.writeInfo("Enter now the length of X = Count of arrays to multiply");
+                int x = console.readInt();
 
-            console.printResult(result);
-            console.pressEnterToContinue(arr, arr2, result, "Multiplication of two Arrays");
+                double[][] arr2 = console.readDoubleInput(arr.length, x);
+                double[][] result = VectorCalculation.getMultiplicationTwoVectors(arr, arr2);
+
+                console.printResult(result);
+            }
+            console.pressEnter();
+
         }
     }
     //</editor-fold>
@@ -632,17 +644,19 @@ public class Menu {
 
             console.printResult(MatrixCalculation.multiplicationWithOneNumber(matrix1, multi));
             console.pressEnter();
-        }else {
+        }else if (choice == 2) {
             console.writeInfo("Enter now the second array");
             double[][] matrix2 = console.readDoubleInput(i, j);
+            console.printResult(MatrixCalculation.mergeMatrix(matrix1, matrix2));
+            console.pressEnter();
+        } else if (choice == 3) {
+            console.writeInfo("Enter now the length of X = Weeks or Runtime to calc");
+            int x = console.readInt();
 
-            if (choice == 2) {
-                console.printResult(MatrixCalculation.mergeMatrix(matrix1, matrix2));
-                console.pressEnter();
-            } else if (choice == 3) {
-                console.printResult(MatrixCalculation.multiTwoMatrix(matrix1, matrix2));
-                console.pressEnter();
-            }
+            double[][] matrix2 = console.readDoubleInput(x, j);
+
+            console.printResult(MatrixCalculation.multiTwoMatrix(matrix1, matrix2));
+            console.pressEnter();
         }
     }
     //</editor-fold>

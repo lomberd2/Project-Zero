@@ -78,11 +78,21 @@ public class VectorCalculation {
      * @param array2 Second Vector to multiply
      * @return returns the multiplied Vector
      */
-    public static double[] getMultiplicationTwoVectors(double[] array, double[] array2){
-        double[] vector = new double[array.length];
+    public static double[][] getMultiplicationTwoVectors(double[] array, double[][] array2){
+        double[][] out = new double[array.length][array2[0].length];
         for (int i = 0; i < array.length; i++){
-            vector[i] = array[i] * array2[i];
+            for(int x = 0; x < array2[0].length; x++) {
+                out[i][x] = array[i] * array2[i][x];
+            }
         }
-        return vector;
+        return out;
+    }
+
+    public static double getMultiplicationTwoVectors(double[] array, double[] array2){
+        double out = 0;
+        for (int i = 0; i < array.length; i++){
+            out += array[i] * array2[i];
+        }
+        return out;
     }
 }

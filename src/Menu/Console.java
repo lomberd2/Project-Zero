@@ -384,7 +384,7 @@ public class Console {
     //endregion
 
     //region ReadAndWrite Arrays
-    private ArrayList<SavedArray> savedArrays = new ArrayList<>();
+    private final ArrayList<SavedArray> savedArrays = new ArrayList<>();
 
     //<editor-fold desc="Save Current Arrays">
     /**
